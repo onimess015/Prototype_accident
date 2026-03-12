@@ -1,0 +1,886 @@
+"id","year","state_name","state_code","cause","cases","injured","died"
+0,"2018","Andaman And Nicobar Islands","35","Fault Of Driver",0.0,0.0,0.0
+1,"2018","Andaman And Nicobar Islands","35","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+2,"2018","Andaman And Nicobar Islands","35","Other Causes",0.0,0.0,0.0
+3,"2018","Andaman And Nicobar Islands","35","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+4,"2018","Andaman And Nicobar Islands","35","Signalmen'S Error",0.0,0.0,0.0
+5,"2018","Andhra Pradesh","28","Fault Of Driver",1.0,0.0,1.0
+6,"2018","Andhra Pradesh","28","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+7,"2018","Andhra Pradesh","28","Other Causes",1524.0,0.0,1530.0
+8,"2018","Andhra Pradesh","28","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+9,"2018","Andhra Pradesh","28","Signalmen'S Error",0.0,0.0,0.0
+10,"2018","Arunachal Pradesh","12","Fault Of Driver",0.0,0.0,0.0
+11,"2018","Arunachal Pradesh","12","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+12,"2018","Arunachal Pradesh","12","Other Causes",0.0,0.0,0.0
+13,"2018","Arunachal Pradesh","12","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+14,"2018","Arunachal Pradesh","12","Signalmen'S Error",0.0,0.0,0.0
+15,"2018","Assam","18","Fault Of Driver",0.0,0.0,0.0
+16,"2018","Assam","18","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",14.0,0.0,14.0
+17,"2018","Assam","18","Other Causes",540.0,0.0,542.0
+18,"2018","Assam","18","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+19,"2018","Assam","18","Signalmen'S Error",1.0,0.0,1.0
+20,"2018","Bihar","10","Fault Of Driver",0.0,0.0,0.0
+21,"2018","Bihar","10","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",18.0,14.0,20.0
+22,"2018","Bihar","10","Other Causes",1565.0,9.0,1565.0
+23,"2018","Bihar","10","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+24,"2018","Bihar","10","Signalmen'S Error",0.0,0.0,0.0
+25,"2018","Chandigarh","4","Fault Of Driver",0.0,0.0,0.0
+26,"2018","Chandigarh","4","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+27,"2018","Chandigarh","4","Other Causes",0.0,0.0,0.0
+28,"2018","Chandigarh","4","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+29,"2018","Chandigarh","4","Signalmen'S Error",0.0,0.0,0.0
+30,"2018","Chhattisgarh","22","Fault Of Driver",0.0,0.0,0.0
+31,"2018","Chhattisgarh","22","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+32,"2018","Chhattisgarh","22","Other Causes",400.0,0.0,400.0
+33,"2018","Chhattisgarh","22","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+34,"2018","Chhattisgarh","22","Signalmen'S Error",0.0,0.0,0.0
+35,"2018","Delhi","7","Fault Of Driver",0.0,0.0,0.0
+36,"2018","Delhi","7","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+37,"2018","Delhi","7","Other Causes",990.0,116.0,874.0
+38,"2018","Delhi","7","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+39,"2018","Delhi","7","Signalmen'S Error",0.0,0.0,0.0
+40,"2018","Goa","30","Fault Of Driver",0.0,0.0,0.0
+41,"2018","Goa","30","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+42,"2018","Goa","30","Other Causes",39.0,0.0,39.0
+43,"2018","Goa","30","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+44,"2018","Goa","30","Signalmen'S Error",0.0,0.0,0.0
+45,"2018","Gujarat","24","Fault Of Driver",0.0,0.0,0.0
+46,"2018","Gujarat","24","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+47,"2018","Gujarat","24","Other Causes",1014.0,0.0,1022.0
+48,"2018","Gujarat","24","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+49,"2018","Gujarat","24","Signalmen'S Error",0.0,0.0,0.0
+50,"2018","Haryana","6","Fault Of Driver",0.0,0.0,0.0
+51,"2018","Haryana","6","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+52,"2018","Haryana","6","Other Causes",2141.0,0.0,2141.0
+53,"2018","Haryana","6","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+54,"2018","Haryana","6","Signalmen'S Error",0.0,0.0,0.0
+55,"2018","Himachal Pradesh","2","Fault Of Driver",0.0,0.0,0.0
+56,"2018","Himachal Pradesh","2","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+57,"2018","Himachal Pradesh","2","Other Causes",0.0,0.0,0.0
+58,"2018","Himachal Pradesh","2","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+59,"2018","Himachal Pradesh","2","Signalmen'S Error",0.0,0.0,0.0
+60,"2018","Jammu And Kashmir","1","Fault Of Driver",0.0,0.0,0.0
+61,"2018","Jammu And Kashmir","1","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+62,"2018","Jammu And Kashmir","1","Other Causes",64.0,4.0,61.0
+63,"2018","Jammu And Kashmir","1","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+64,"2018","Jammu And Kashmir","1","Signalmen'S Error",0.0,0.0,0.0
+65,"2018","Jharkhand","20","Fault Of Driver",0.0,0.0,0.0
+66,"2018","Jharkhand","20","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",302.0,0.0,302.0
+67,"2018","Jharkhand","20","Other Causes",131.0,0.0,131.0
+68,"2018","Jharkhand","20","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+69,"2018","Jharkhand","20","Signalmen'S Error",14.0,0.0,14.0
+70,"2018","Karnataka","29","Fault Of Driver",0.0,0.0,0.0
+71,"2018","Karnataka","29","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+72,"2018","Karnataka","29","Other Causes",0.0,0.0,0.0
+73,"2018","Karnataka","29","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+74,"2018","Karnataka","29","Signalmen'S Error",0.0,0.0,0.0
+75,"2018","Kerala","32","Fault Of Driver",4.0,0.0,6.0
+76,"2018","Kerala","32","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",9.0,0.0,9.0
+77,"2018","Kerala","32","Other Causes",238.0,16.0,231.0
+78,"2018","Kerala","32","Sabotage By Extremist/Terrorist/Others",7.0,0.0,7.0
+79,"2018","Kerala","32","Signalmen'S Error",0.0,0.0,0.0
+80,"2018","Lakshadweep","31","Fault Of Driver",0.0,0.0,0.0
+81,"2018","Lakshadweep","31","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+82,"2018","Lakshadweep","31","Other Causes",0.0,0.0,0.0
+83,"2018","Lakshadweep","31","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+84,"2018","Lakshadweep","31","Signalmen'S Error",0.0,0.0,0.0
+85,"2018","Madhya Pradesh","23","Fault Of Driver",0.0,0.0,0.0
+86,"2018","Madhya Pradesh","23","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+87,"2018","Madhya Pradesh","23","Other Causes",1459.0,66.0,1396.0
+88,"2018","Madhya Pradesh","23","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+89,"2018","Madhya Pradesh","23","Signalmen'S Error",0.0,0.0,0.0
+90,"2018","Maharashtra","27","Fault Of Driver",0.0,0.0,0.0
+91,"2018","Maharashtra","27","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",9.0,0.0,9.0
+92,"2018","Maharashtra","27","Other Causes",6340.0,2563.0,3792.0
+93,"2018","Maharashtra","27","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+94,"2018","Maharashtra","27","Signalmen'S Error",0.0,0.0,0.0
+95,"2018","Manipur","14","Fault Of Driver",0.0,0.0,0.0
+96,"2018","Manipur","14","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+97,"2018","Manipur","14","Other Causes",0.0,0.0,0.0
+98,"2018","Manipur","14","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+99,"2018","Manipur","14","Signalmen'S Error",0.0,0.0,0.0
+100,"2018","Meghalaya","17","Fault Of Driver",0.0,0.0,0.0
+101,"2018","Meghalaya","17","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+102,"2018","Meghalaya","17","Other Causes",0.0,0.0,0.0
+103,"2018","Meghalaya","17","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+104,"2018","Meghalaya","17","Signalmen'S Error",0.0,0.0,0.0
+105,"2018","Mizoram","15","Fault Of Driver",0.0,0.0,0.0
+106,"2018","Mizoram","15","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+107,"2018","Mizoram","15","Other Causes",0.0,0.0,0.0
+108,"2018","Mizoram","15","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+109,"2018","Mizoram","15","Signalmen'S Error",0.0,0.0,0.0
+110,"2018","Nagaland","13","Fault Of Driver",0.0,0.0,0.0
+111,"2018","Nagaland","13","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+112,"2018","Nagaland","13","Other Causes",0.0,0.0,0.0
+113,"2018","Nagaland","13","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+114,"2018","Nagaland","13","Signalmen'S Error",0.0,0.0,0.0
+115,"2018","Odisha","21","Fault Of Driver",0.0,0.0,0.0
+116,"2018","Odisha","21","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+117,"2018","Odisha","21","Other Causes",427.0,0.0,427.0
+118,"2018","Odisha","21","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+119,"2018","Odisha","21","Signalmen'S Error",0.0,0.0,0.0
+120,"2018","Puducherry","34","Fault Of Driver",0.0,0.0,0.0
+121,"2018","Puducherry","34","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+122,"2018","Puducherry","34","Other Causes",0.0,0.0,0.0
+123,"2018","Puducherry","34","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+124,"2018","Puducherry","34","Signalmen'S Error",0.0,0.0,0.0
+125,"2018","Punjab","3","Fault Of Driver",0.0,0.0,0.0
+126,"2018","Punjab","3","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+127,"2018","Punjab","3","Other Causes",865.0,124.0,872.0
+128,"2018","Punjab","3","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+129,"2018","Punjab","3","Signalmen'S Error",0.0,0.0,0.0
+130,"2018","Rajasthan","8","Fault Of Driver",0.0,0.0,0.0
+131,"2018","Rajasthan","8","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+132,"2018","Rajasthan","8","Other Causes",655.0,29.0,633.0
+133,"2018","Rajasthan","8","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+134,"2018","Rajasthan","8","Signalmen'S Error",0.0,0.0,0.0
+135,"2018","Sikkim","11","Fault Of Driver",0.0,0.0,0.0
+136,"2018","Sikkim","11","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+137,"2018","Sikkim","11","Other Causes",0.0,0.0,0.0
+138,"2018","Sikkim","11","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+139,"2018","Sikkim","11","Signalmen'S Error",0.0,0.0,0.0
+140,"2018","Tamil Nadu","33","Fault Of Driver",0.0,0.0,0.0
+141,"2018","Tamil Nadu","33","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+142,"2018","Tamil Nadu","33","Other Causes",2184.0,173.0,2025.0
+143,"2018","Tamil Nadu","33","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+144,"2018","Tamil Nadu","33","Signalmen'S Error",0.0,0.0,0.0
+145,"2018","Telangana","36","Fault Of Driver",0.0,0.0,0.0
+146,"2018","Telangana","36","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+147,"2018","Telangana","36","Other Causes",637.0,0.0,641.0
+148,"2018","Telangana","36","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+149,"2018","Telangana","36","Signalmen'S Error",0.0,0.0,0.0
+150,"2018","The Dadra And Nagar Haveli And Daman And Diu","38","Fault Of Driver",0.0,0.0,0.0
+151,"2018","The Dadra And Nagar Haveli And Daman And Diu","38","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+152,"2018","The Dadra And Nagar Haveli And Daman And Diu","38","Other Causes",0.0,0.0,0.0
+153,"2018","The Dadra And Nagar Haveli And Daman And Diu","38","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+154,"2018","The Dadra And Nagar Haveli And Daman And Diu","38","Signalmen'S Error",0.0,0.0,0.0
+155,"2018","Tripura","16","Fault Of Driver",0.0,0.0,0.0
+156,"2018","Tripura","16","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+157,"2018","Tripura","16","Other Causes",7.0,0.0,7.0
+158,"2018","Tripura","16","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+159,"2018","Tripura","16","Signalmen'S Error",0.0,0.0,0.0
+160,"2018","Uttar Pradesh","9","Fault Of Driver",82.0,0.0,92.0
+161,"2018","Uttar Pradesh","9","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",77.0,39.0,85.0
+162,"2018","Uttar Pradesh","9","Other Causes",3106.0,244.0,2911.0
+163,"2018","Uttar Pradesh","9","Sabotage By Extremist/Terrorist/Others",7.0,0.0,7.0
+164,"2018","Uttar Pradesh","9","Signalmen'S Error",0.0,0.0,0.0
+165,"2018","Uttarakhand","5","Fault Of Driver",0.0,0.0,0.0
+166,"2018","Uttarakhand","5","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",10.0,0.0,10.0
+167,"2018","Uttarakhand","5","Other Causes",6.0,0.0,6.0
+168,"2018","Uttarakhand","5","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+169,"2018","Uttarakhand","5","Signalmen'S Error",0.0,0.0,0.0
+170,"2018","West Bengal","19","Fault Of Driver",6.0,0.0,6.0
+171,"2018","West Bengal","19","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+172,"2018","West Bengal","19","Other Causes",2750.0,34.0,2716.0
+173,"2018","West Bengal","19","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+174,"2018","West Bengal","19","Signalmen'S Error",0.0,0.0,0.0
+175,"2019","Andhra Pradesh","28","Fault Of Driver",6.0,1.0,6.0
+176,"2019","Andhra Pradesh","28","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+177,"2019","Andhra Pradesh","28","Other Causes",1505.0,0.0,1513.0
+178,"2019","Andhra Pradesh","28","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+179,"2019","Andhra Pradesh","28","Signalmen'S Error",0.0,0.0,0.0
+180,"2019","Arunachal Pradesh","12","Fault Of Driver",0.0,0.0,0.0
+181,"2019","Arunachal Pradesh","12","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+182,"2019","Arunachal Pradesh","12","Other Causes",0.0,0.0,0.0
+183,"2019","Arunachal Pradesh","12","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+184,"2019","Arunachal Pradesh","12","Signalmen'S Error",0.0,0.0,0.0
+185,"2019","Assam","18","Fault Of Driver",0.0,0.0,0.0
+186,"2019","Assam","18","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+187,"2019","Assam","18","Other Causes",591.0,0.0,593.0
+188,"2019","Assam","18","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+189,"2019","Assam","18","Signalmen'S Error",0.0,0.0,0.0
+190,"2019","Bihar","10","Fault Of Driver",0.0,0.0,0.0
+191,"2019","Bihar","10","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",3.0,0.0,3.0
+192,"2019","Bihar","10","Other Causes",1586.0,0.0,1619.0
+193,"2019","Bihar","10","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+194,"2019","Bihar","10","Signalmen'S Error",0.0,0.0,0.0
+195,"2019","Chandigarh","4","Fault Of Driver",0.0,0.0,0.0
+196,"2019","Chandigarh","4","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+197,"2019","Chandigarh","4","Other Causes",0.0,0.0,0.0
+198,"2019","Chandigarh","4","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+199,"2019","Chandigarh","4","Signalmen'S Error",0.0,0.0,0.0
+200,"2019","Chhattisgarh","22","Fault Of Driver",0.0,0.0,0.0
+201,"2019","Chhattisgarh","22","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+202,"2019","Chhattisgarh","22","Other Causes",466.0,0.0,466.0
+203,"2019","Chhattisgarh","22","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+204,"2019","Chhattisgarh","22","Signalmen'S Error",0.0,0.0,0.0
+205,"2019","Delhi","7","Fault Of Driver",0.0,0.0,0.0
+206,"2019","Delhi","7","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+207,"2019","Delhi","7","Other Causes",858.0,62.0,796.0
+208,"2019","Delhi","7","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+209,"2019","Delhi","7","Signalmen'S Error",0.0,0.0,0.0
+210,"2019","Goa","30","Fault Of Driver",0.0,0.0,0.0
+211,"2019","Goa","30","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+212,"2019","Goa","30","Other Causes",50.0,0.0,50.0
+213,"2019","Goa","30","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+214,"2019","Goa","30","Signalmen'S Error",0.0,0.0,0.0
+215,"2019","Gujarat","24","Fault Of Driver",0.0,0.0,0.0
+216,"2019","Gujarat","24","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+217,"2019","Gujarat","24","Other Causes",994.0,0.0,1012.0
+218,"2019","Gujarat","24","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+219,"2019","Gujarat","24","Signalmen'S Error",0.0,0.0,0.0
+220,"2019","Haryana","6","Fault Of Driver",0.0,0.0,0.0
+221,"2019","Haryana","6","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+222,"2019","Haryana","6","Other Causes",1362.0,126.0,1278.0
+223,"2019","Haryana","6","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+224,"2019","Haryana","6","Signalmen'S Error",0.0,0.0,0.0
+225,"2019","Himachal Pradesh","2","Fault Of Driver",0.0,0.0,0.0
+226,"2019","Himachal Pradesh","2","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+227,"2019","Himachal Pradesh","2","Other Causes",0.0,0.0,0.0
+228,"2019","Himachal Pradesh","2","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+229,"2019","Himachal Pradesh","2","Signalmen'S Error",0.0,0.0,0.0
+230,"2019","Jammu And Kashmir","1","Fault Of Driver",0.0,0.0,0.0
+231,"2019","Jammu And Kashmir","1","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+232,"2019","Jammu And Kashmir","1","Other Causes",44.0,0.0,45.0
+233,"2019","Jammu And Kashmir","1","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+234,"2019","Jammu And Kashmir","1","Signalmen'S Error",0.0,0.0,0.0
+235,"2019","Jharkhand","20","Fault Of Driver",0.0,0.0,0.0
+236,"2019","Jharkhand","20","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",31.0,0.0,31.0
+237,"2019","Jharkhand","20","Other Causes",444.0,1.0,447.0
+238,"2019","Jharkhand","20","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+239,"2019","Jharkhand","20","Signalmen'S Error",8.0,0.0,8.0
+240,"2019","Karnataka","29","Fault Of Driver",0.0,0.0,0.0
+241,"2019","Karnataka","29","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+242,"2019","Karnataka","29","Other Causes",0.0,0.0,0.0
+243,"2019","Karnataka","29","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+244,"2019","Karnataka","29","Signalmen'S Error",0.0,0.0,0.0
+245,"2019","Kerala","32","Fault Of Driver",4.0,0.0,4.0
+246,"2019","Kerala","32","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",14.0,0.0,14.0
+247,"2019","Kerala","32","Other Causes",230.0,1.0,234.0
+248,"2019","Kerala","32","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+249,"2019","Kerala","32","Signalmen'S Error",2.0,0.0,2.0
+250,"2019","Lakshadweep","31","Fault Of Driver",0.0,0.0,0.0
+251,"2019","Lakshadweep","31","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+252,"2019","Lakshadweep","31","Other Causes",0.0,0.0,0.0
+253,"2019","Lakshadweep","31","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+254,"2019","Lakshadweep","31","Signalmen'S Error",0.0,0.0,0.0
+255,"2019","Madhya Pradesh","23","Fault Of Driver",12.0,0.0,12.0
+256,"2019","Madhya Pradesh","23","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",2.0,0.0,2.0
+257,"2019","Madhya Pradesh","23","Other Causes",1494.0,99.0,1395.0
+258,"2019","Madhya Pradesh","23","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+259,"2019","Madhya Pradesh","23","Signalmen'S Error",0.0,0.0,0.0
+260,"2019","Maharashtra","27","Fault Of Driver",0.0,0.0,0.0
+261,"2019","Maharashtra","27","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+262,"2019","Maharashtra","27","Other Causes",6338.0,2435.0,3916.0
+263,"2019","Maharashtra","27","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+264,"2019","Maharashtra","27","Signalmen'S Error",0.0,0.0,0.0
+265,"2019","Manipur","14","Fault Of Driver",0.0,0.0,0.0
+266,"2019","Manipur","14","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+267,"2019","Manipur","14","Other Causes",0.0,0.0,0.0
+268,"2019","Manipur","14","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+269,"2019","Manipur","14","Signalmen'S Error",0.0,0.0,0.0
+270,"2019","Meghalaya","17","Fault Of Driver",0.0,0.0,0.0
+271,"2019","Meghalaya","17","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+272,"2019","Meghalaya","17","Other Causes",0.0,0.0,0.0
+273,"2019","Meghalaya","17","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+274,"2019","Meghalaya","17","Signalmen'S Error",0.0,0.0,0.0
+275,"2019","Mizoram","15","Fault Of Driver",0.0,0.0,0.0
+276,"2019","Mizoram","15","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+277,"2019","Mizoram","15","Other Causes",0.0,0.0,0.0
+278,"2019","Mizoram","15","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+279,"2019","Mizoram","15","Signalmen'S Error",0.0,0.0,0.0
+280,"2019","Nagaland","13","Fault Of Driver",0.0,0.0,0.0
+281,"2019","Nagaland","13","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+282,"2019","Nagaland","13","Other Causes",0.0,0.0,0.0
+283,"2019","Nagaland","13","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+284,"2019","Nagaland","13","Signalmen'S Error",0.0,0.0,0.0
+285,"2019","Odisha","21","Fault Of Driver",0.0,0.0,0.0
+286,"2019","Odisha","21","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",1.0,0.0,1.0
+287,"2019","Odisha","21","Other Causes",443.0,0.0,445.0
+288,"2019","Odisha","21","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+289,"2019","Odisha","21","Signalmen'S Error",0.0,0.0,0.0
+290,"2019","Puducherry","34","Fault Of Driver",0.0,0.0,0.0
+291,"2019","Puducherry","34","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+292,"2019","Puducherry","34","Other Causes",9.0,0.0,9.0
+293,"2019","Puducherry","34","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+294,"2019","Puducherry","34","Signalmen'S Error",0.0,0.0,0.0
+295,"2019","Punjab","3","Fault Of Driver",0.0,0.0,0.0
+296,"2019","Punjab","3","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+297,"2019","Punjab","3","Other Causes",893.0,65.0,831.0
+298,"2019","Punjab","3","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+299,"2019","Punjab","3","Signalmen'S Error",0.0,0.0,0.0
+300,"2019","Rajasthan","8","Fault Of Driver",0.0,0.0,0.0
+301,"2019","Rajasthan","8","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",17.0,0.0,17.0
+302,"2019","Rajasthan","8","Other Causes",786.0,30.0,758.0
+303,"2019","Rajasthan","8","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+304,"2019","Rajasthan","8","Signalmen'S Error",0.0,0.0,0.0
+305,"2019","Sikkim","11","Fault Of Driver",0.0,0.0,0.0
+306,"2019","Sikkim","11","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+307,"2019","Sikkim","11","Other Causes",0.0,0.0,0.0
+308,"2019","Sikkim","11","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+309,"2019","Sikkim","11","Signalmen'S Error",0.0,0.0,0.0
+310,"2019","Tamil Nadu","33","Fault Of Driver",0.0,0.0,0.0
+311,"2019","Tamil Nadu","33","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+312,"2019","Tamil Nadu","33","Other Causes",2266.0,203.0,2081.0
+313,"2019","Tamil Nadu","33","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+314,"2019","Tamil Nadu","33","Signalmen'S Error",0.0,0.0,0.0
+315,"2019","Telangana","36","Fault Of Driver",0.0,0.0,0.0
+316,"2019","Telangana","36","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+317,"2019","Telangana","36","Other Causes",626.0,0.0,631.0
+318,"2019","Telangana","36","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+319,"2019","Telangana","36","Signalmen'S Error",0.0,0.0,0.0
+320,"2019","The Dadra And Nagar Haveli And Daman And Diu","38","Fault Of Driver",0.0,0.0,0.0
+321,"2019","The Dadra And Nagar Haveli And Daman And Diu","38","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+322,"2019","The Dadra And Nagar Haveli And Daman And Diu","38","Other Causes",0.0,0.0,0.0
+323,"2019","The Dadra And Nagar Haveli And Daman And Diu","38","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+324,"2019","The Dadra And Nagar Haveli And Daman And Diu","38","Signalmen'S Error",0.0,0.0,0.0
+325,"2019","Tripura","16","Fault Of Driver",0.0,0.0,0.0
+326,"2019","Tripura","16","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+327,"2019","Tripura","16","Other Causes",5.0,0.0,5.0
+328,"2019","Tripura","16","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+329,"2019","Tripura","16","Signalmen'S Error",0.0,0.0,0.0
+330,"2019","Uttar Pradesh","9","Fault Of Driver",29.0,0.0,29.0
+331,"2019","Uttar Pradesh","9","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",155.0,120.0,300.0
+332,"2019","Uttar Pradesh","9","Other Causes",3796.0,382.0,3192.0
+333,"2019","Uttar Pradesh","9","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+334,"2019","Uttar Pradesh","9","Signalmen'S Error",0.0,0.0,0.0
+335,"2019","Uttarakhand","5","Fault Of Driver",0.0,0.0,0.0
+336,"2019","Uttarakhand","5","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",41.0,0.0,42.0
+337,"2019","Uttarakhand","5","Other Causes",0.0,0.0,0.0
+338,"2019","Uttarakhand","5","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+339,"2019","Uttarakhand","5","Signalmen'S Error",0.0,0.0,0.0
+340,"2019","West Bengal","19","Fault Of Driver",0.0,0.0,0.0
+341,"2019","West Bengal","19","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+342,"2019","West Bengal","19","Other Causes",2876.0,44.0,2832.0
+343,"2019","West Bengal","19","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+344,"2019","West Bengal","19","Signalmen'S Error",0.0,0.0,0.0
+345,"2020","Andaman And Nicobar Islands","35","Fault Of Driver",0.0,0.0,0.0
+346,"2020","Andaman And Nicobar Islands","35","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+347,"2020","Andaman And Nicobar Islands","35","Other Causes",0.0,0.0,0.0
+348,"2020","Andaman And Nicobar Islands","35","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+349,"2020","Andaman And Nicobar Islands","35","Signalmen'S Error",0.0,0.0,0.0
+350,"2020","Andhra Pradesh","28","Fault Of Driver",0.0,0.0,0.0
+351,"2020","Andhra Pradesh","28","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+352,"2020","Andhra Pradesh","28","Other Causes",611.0,0.0,613.0
+353,"2020","Andhra Pradesh","28","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+354,"2020","Andhra Pradesh","28","Signalmen'S Error",0.0,0.0,0.0
+355,"2020","Arunachal Pradesh","12","Fault Of Driver",0.0,0.0,0.0
+356,"2020","Arunachal Pradesh","12","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+357,"2020","Arunachal Pradesh","12","Other Causes",0.0,0.0,0.0
+358,"2020","Arunachal Pradesh","12","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+359,"2020","Arunachal Pradesh","12","Signalmen'S Error",0.0,0.0,0.0
+360,"2020","Assam","18","Fault Of Driver",0.0,0.0,0.0
+361,"2020","Assam","18","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",413.0,3.0,413.0
+362,"2020","Assam","18","Other Causes",0.0,0.0,0.0
+363,"2020","Assam","18","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+364,"2020","Assam","18","Signalmen'S Error",0.0,0.0,0.0
+365,"2020","Bihar","10","Fault Of Driver",0.0,0.0,0.0
+366,"2020","Bihar","10","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",16.0,0.0,16.0
+367,"2020","Bihar","10","Other Causes",764.0,3.0,765.0
+368,"2020","Bihar","10","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+369,"2020","Bihar","10","Signalmen'S Error",0.0,0.0,0.0
+370,"2020","Chandigarh","4","Fault Of Driver",0.0,0.0,0.0
+371,"2020","Chandigarh","4","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+372,"2020","Chandigarh","4","Other Causes",0.0,0.0,0.0
+373,"2020","Chandigarh","4","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+374,"2020","Chandigarh","4","Signalmen'S Error",0.0,0.0,0.0
+375,"2020","Chhattisgarh","22","Fault Of Driver",0.0,0.0,0.0
+376,"2020","Chhattisgarh","22","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+377,"2020","Chhattisgarh","22","Other Causes",310.0,1.0,309.0
+378,"2020","Chhattisgarh","22","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+379,"2020","Chhattisgarh","22","Signalmen'S Error",18.0,0.0,18.0
+380,"2020","Delhi","7","Fault Of Driver",0.0,0.0,0.0
+381,"2020","Delhi","7","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+382,"2020","Delhi","7","Other Causes",526.0,111.0,415.0
+383,"2020","Delhi","7","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+384,"2020","Delhi","7","Signalmen'S Error",0.0,0.0,0.0
+385,"2020","Goa","30","Fault Of Driver",0.0,0.0,0.0
+386,"2020","Goa","30","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+387,"2020","Goa","30","Other Causes",23.0,0.0,23.0
+388,"2020","Goa","30","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+389,"2020","Goa","30","Signalmen'S Error",0.0,0.0,0.0
+390,"2020","Gujarat","24","Fault Of Driver",0.0,0.0,0.0
+391,"2020","Gujarat","24","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+392,"2020","Gujarat","24","Other Causes",490.0,0.0,492.0
+393,"2020","Gujarat","24","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+394,"2020","Gujarat","24","Signalmen'S Error",0.0,0.0,0.0
+395,"2020","Haryana","6","Fault Of Driver",0.0,0.0,0.0
+396,"2020","Haryana","6","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+397,"2020","Haryana","6","Other Causes",523.0,20.0,504.0
+398,"2020","Haryana","6","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+399,"2020","Haryana","6","Signalmen'S Error",0.0,0.0,0.0
+400,"2020","Himachal Pradesh","2","Fault Of Driver",0.0,0.0,0.0
+401,"2020","Himachal Pradesh","2","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+402,"2020","Himachal Pradesh","2","Other Causes",0.0,0.0,0.0
+403,"2020","Himachal Pradesh","2","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+404,"2020","Himachal Pradesh","2","Signalmen'S Error",0.0,0.0,0.0
+405,"2020","Jammu And Kashmir","1","Fault Of Driver",0.0,0.0,0.0
+406,"2020","Jammu And Kashmir","1","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+407,"2020","Jammu And Kashmir","1","Other Causes",9.0,0.0,9.0
+408,"2020","Jammu And Kashmir","1","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+409,"2020","Jammu And Kashmir","1","Signalmen'S Error",0.0,0.0,0.0
+410,"2020","Jharkhand","20","Fault Of Driver",22.0,0.0,18.0
+411,"2020","Jharkhand","20","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",51.0,0.0,50.0
+412,"2020","Jharkhand","20","Other Causes",198.0,5.0,194.0
+413,"2020","Jharkhand","20","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+414,"2020","Jharkhand","20","Signalmen'S Error",3.0,0.0,4.0
+415,"2020","Karnataka","29","Fault Of Driver",0.0,0.0,0.0
+416,"2020","Karnataka","29","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+417,"2020","Karnataka","29","Other Causes",0.0,0.0,0.0
+418,"2020","Karnataka","29","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+419,"2020","Karnataka","29","Signalmen'S Error",0.0,0.0,0.0
+420,"2020","Kerala","32","Fault Of Driver",0.0,0.0,0.0
+421,"2020","Kerala","32","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",8.0,5.0,8.0
+422,"2020","Kerala","32","Other Causes",95.0,0.0,95.0
+423,"2020","Kerala","32","Sabotage By Extremist/Terrorist/Others",2.0,0.0,2.0
+424,"2020","Kerala","32","Signalmen'S Error",5.0,0.0,5.0
+425,"2020","Ladakh","37","Fault Of Driver",0.0,0.0,0.0
+426,"2020","Ladakh","37","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+427,"2020","Ladakh","37","Other Causes",0.0,0.0,0.0
+428,"2020","Ladakh","37","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+429,"2020","Ladakh","37","Signalmen'S Error",0.0,0.0,0.0
+430,"2020","Lakshadweep","31","Fault Of Driver",0.0,0.0,0.0
+431,"2020","Lakshadweep","31","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+432,"2020","Lakshadweep","31","Other Causes",0.0,0.0,0.0
+433,"2020","Lakshadweep","31","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+434,"2020","Lakshadweep","31","Signalmen'S Error",0.0,0.0,0.0
+435,"2020","Madhya Pradesh","23","Fault Of Driver",1.0,0.0,3.0
+436,"2020","Madhya Pradesh","23","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+437,"2020","Madhya Pradesh","23","Other Causes",817.0,0.0,817.0
+438,"2020","Madhya Pradesh","23","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+439,"2020","Madhya Pradesh","23","Signalmen'S Error",2.0,0.0,2.0
+440,"2020","Maharashtra","27","Fault Of Driver",0.0,0.0,0.0
+441,"2020","Maharashtra","27","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+442,"2020","Maharashtra","27","Other Causes",2697.0,792.0,1922.0
+443,"2020","Maharashtra","27","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+444,"2020","Maharashtra","27","Signalmen'S Error",0.0,0.0,0.0
+445,"2020","Manipur","14","Fault Of Driver",0.0,0.0,0.0
+446,"2020","Manipur","14","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+447,"2020","Manipur","14","Other Causes",0.0,0.0,0.0
+448,"2020","Manipur","14","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+449,"2020","Manipur","14","Signalmen'S Error",0.0,0.0,0.0
+450,"2020","Meghalaya","17","Fault Of Driver",0.0,0.0,0.0
+451,"2020","Meghalaya","17","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+452,"2020","Meghalaya","17","Other Causes",0.0,0.0,0.0
+453,"2020","Meghalaya","17","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+454,"2020","Meghalaya","17","Signalmen'S Error",0.0,0.0,0.0
+455,"2020","Mizoram","15","Fault Of Driver",0.0,0.0,0.0
+456,"2020","Mizoram","15","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+457,"2020","Mizoram","15","Other Causes",0.0,0.0,0.0
+458,"2020","Mizoram","15","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+459,"2020","Mizoram","15","Signalmen'S Error",0.0,0.0,0.0
+460,"2020","Nagaland","13","Fault Of Driver",0.0,0.0,0.0
+461,"2020","Nagaland","13","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+462,"2020","Nagaland","13","Other Causes",0.0,0.0,0.0
+463,"2020","Nagaland","13","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+464,"2020","Nagaland","13","Signalmen'S Error",0.0,0.0,0.0
+465,"2020","Odisha","21","Fault Of Driver",0.0,0.0,0.0
+466,"2020","Odisha","21","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+467,"2020","Odisha","21","Other Causes",279.0,0.0,280.0
+468,"2020","Odisha","21","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+469,"2020","Odisha","21","Signalmen'S Error",0.0,0.0,0.0
+470,"2020","Puducherry","34","Fault Of Driver",0.0,0.0,0.0
+471,"2020","Puducherry","34","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+472,"2020","Puducherry","34","Other Causes",0.0,0.0,0.0
+473,"2020","Puducherry","34","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+474,"2020","Puducherry","34","Signalmen'S Error",0.0,0.0,0.0
+475,"2020","Punjab","3","Fault Of Driver",0.0,0.0,0.0
+476,"2020","Punjab","3","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+477,"2020","Punjab","3","Other Causes",342.0,15.0,329.0
+478,"2020","Punjab","3","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+479,"2020","Punjab","3","Signalmen'S Error",0.0,0.0,0.0
+480,"2020","Rajasthan","8","Fault Of Driver",0.0,0.0,0.0
+481,"2020","Rajasthan","8","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+482,"2020","Rajasthan","8","Other Causes",429.0,15.0,415.0
+483,"2020","Rajasthan","8","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+484,"2020","Rajasthan","8","Signalmen'S Error",0.0,0.0,0.0
+485,"2020","Sikkim","11","Fault Of Driver",0.0,0.0,0.0
+486,"2020","Sikkim","11","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+487,"2020","Sikkim","11","Other Causes",0.0,0.0,0.0
+488,"2020","Sikkim","11","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+489,"2020","Sikkim","11","Signalmen'S Error",0.0,0.0,0.0
+490,"2020","Tamil Nadu","33","Fault Of Driver",0.0,0.0,0.0
+491,"2020","Tamil Nadu","33","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+492,"2020","Tamil Nadu","33","Other Causes",959.0,64.0,902.0
+493,"2020","Tamil Nadu","33","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+494,"2020","Tamil Nadu","33","Signalmen'S Error",0.0,0.0,0.0
+495,"2020","Telangana","36","Fault Of Driver",0.0,0.0,0.0
+496,"2020","Telangana","36","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+497,"2020","Telangana","36","Other Causes",333.0,0.0,337.0
+498,"2020","Telangana","36","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+499,"2020","Telangana","36","Signalmen'S Error",0.0,0.0,0.0
+500,"2020","The Dadra And Nagar Haveli And Daman And Diu","38","Fault Of Driver",0.0,0.0,0.0
+501,"2020","The Dadra And Nagar Haveli And Daman And Diu","38","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+502,"2020","The Dadra And Nagar Haveli And Daman And Diu","38","Other Causes",0.0,0.0,0.0
+503,"2020","The Dadra And Nagar Haveli And Daman And Diu","38","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+504,"2020","The Dadra And Nagar Haveli And Daman And Diu","38","Signalmen'S Error",0.0,0.0,0.0
+505,"2020","Tripura","16","Fault Of Driver",0.0,0.0,0.0
+506,"2020","Tripura","16","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+507,"2020","Tripura","16","Other Causes",2.0,0.0,2.0
+508,"2020","Tripura","16","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+509,"2020","Tripura","16","Signalmen'S Error",0.0,0.0,0.0
+510,"2020","Uttar Pradesh","9","Fault Of Driver",0.0,0.0,0.0
+511,"2020","Uttar Pradesh","9","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",29.0,5.0,49.0
+512,"2020","Uttar Pradesh","9","Other Causes",1527.0,26.0,1505.0
+513,"2020","Uttar Pradesh","9","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+514,"2020","Uttar Pradesh","9","Signalmen'S Error",4.0,0.0,4.0
+515,"2020","Uttarakhand","5","Fault Of Driver",0.0,0.0,0.0
+516,"2020","Uttarakhand","5","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",4.0,1.0,3.0
+517,"2020","Uttarakhand","5","Other Causes",1.0,0.0,1.0
+518,"2020","Uttarakhand","5","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+519,"2020","Uttarakhand","5","Signalmen'S Error",0.0,0.0,0.0
+520,"2020","West Bengal","19","Fault Of Driver",0.0,0.0,0.0
+521,"2020","West Bengal","19","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+522,"2020","West Bengal","19","Other Causes",1505.0,61.0,1444.0
+523,"2020","West Bengal","19","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+524,"2020","West Bengal","19","Signalmen'S Error",0.0,0.0,0.0
+525,"2021","Andaman And Nicobar Islands","35","Fault Of Driver",0.0,0.0,0.0
+526,"2021","Andaman And Nicobar Islands","35","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+527,"2021","Andaman And Nicobar Islands","35","Other Causes",0.0,0.0,0.0
+528,"2021","Andaman And Nicobar Islands","35","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+529,"2021","Andaman And Nicobar Islands","35","Signalmen'S Error",0.0,0.0,0.0
+530,"2021","Andhra Pradesh","28","Fault Of Driver",0.0,0.0,0.0
+531,"2021","Andhra Pradesh","28","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+532,"2021","Andhra Pradesh","28","Other Causes",755.0,0.0,760.0
+533,"2021","Andhra Pradesh","28","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+534,"2021","Andhra Pradesh","28","Signalmen'S Error",0.0,0.0,0.0
+535,"2021","Arunachal Pradesh","12","Fault Of Driver",0.0,0.0,0.0
+536,"2021","Arunachal Pradesh","12","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+537,"2021","Arunachal Pradesh","12","Other Causes",0.0,0.0,0.0
+538,"2021","Arunachal Pradesh","12","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+539,"2021","Arunachal Pradesh","12","Signalmen'S Error",0.0,0.0,0.0
+540,"2021","Assam","18","Fault Of Driver",0.0,0.0,0.0
+541,"2021","Assam","18","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",459.0,0.0,459.0
+542,"2021","Assam","18","Other Causes",0.0,0.0,0.0
+543,"2021","Assam","18","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+544,"2021","Assam","18","Signalmen'S Error",0.0,0.0,0.0
+545,"2021","Bihar","10","Fault Of Driver",0.0,0.0,0.0
+546,"2021","Bihar","10","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+547,"2021","Bihar","10","Other Causes",1139.0,47.0,1143.0
+548,"2021","Bihar","10","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+549,"2021","Bihar","10","Signalmen'S Error",8.0,0.0,8.0
+550,"2021","Chandigarh","4","Fault Of Driver",0.0,0.0,0.0
+551,"2021","Chandigarh","4","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+552,"2021","Chandigarh","4","Other Causes",0.0,0.0,0.0
+553,"2021","Chandigarh","4","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+554,"2021","Chandigarh","4","Signalmen'S Error",0.0,0.0,0.0
+555,"2021","Chhattisgarh","22","Fault Of Driver",37.0,0.0,37.0
+556,"2021","Chhattisgarh","22","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",30.0,0.0,30.0
+557,"2021","Chhattisgarh","22","Other Causes",345.0,0.0,345.0
+558,"2021","Chhattisgarh","22","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+559,"2021","Chhattisgarh","22","Signalmen'S Error",0.0,0.0,0.0
+560,"2021","Delhi","7","Fault Of Driver",0.0,0.0,0.0
+561,"2021","Delhi","7","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+562,"2021","Delhi","7","Other Causes",676.0,126.0,550.0
+563,"2021","Delhi","7","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+564,"2021","Delhi","7","Signalmen'S Error",0.0,0.0,0.0
+565,"2021","Goa","30","Fault Of Driver",0.0,0.0,0.0
+566,"2021","Goa","30","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",1.0,0.0,1.0
+567,"2021","Goa","30","Other Causes",48.0,0.0,48.0
+568,"2021","Goa","30","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+569,"2021","Goa","30","Signalmen'S Error",0.0,0.0,0.0
+570,"2021","Gujarat","24","Fault Of Driver",0.0,0.0,0.0
+571,"2021","Gujarat","24","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+572,"2021","Gujarat","24","Other Causes",571.0,1.0,579.0
+573,"2021","Gujarat","24","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+574,"2021","Gujarat","24","Signalmen'S Error",0.0,0.0,0.0
+575,"2021","Haryana","6","Fault Of Driver",0.0,0.0,0.0
+576,"2021","Haryana","6","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+577,"2021","Haryana","6","Other Causes",806.0,16.0,790.0
+578,"2021","Haryana","6","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+579,"2021","Haryana","6","Signalmen'S Error",0.0,0.0,0.0
+580,"2021","Himachal Pradesh","2","Fault Of Driver",0.0,0.0,0.0
+581,"2021","Himachal Pradesh","2","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+582,"2021","Himachal Pradesh","2","Other Causes",0.0,0.0,0.0
+583,"2021","Himachal Pradesh","2","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+584,"2021","Himachal Pradesh","2","Signalmen'S Error",0.0,0.0,0.0
+585,"2021","Jammu And Kashmir","1","Fault Of Driver",0.0,0.0,0.0
+586,"2021","Jammu And Kashmir","1","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+587,"2021","Jammu And Kashmir","1","Other Causes",15.0,0.0,15.0
+588,"2021","Jammu And Kashmir","1","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+589,"2021","Jammu And Kashmir","1","Signalmen'S Error",0.0,0.0,0.0
+590,"2021","Jharkhand","20","Fault Of Driver",67.0,0.0,68.0
+591,"2021","Jharkhand","20","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",23.0,6.0,24.0
+592,"2021","Jharkhand","20","Other Causes",185.0,14.0,170.0
+593,"2021","Jharkhand","20","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+594,"2021","Jharkhand","20","Signalmen'S Error",9.0,0.0,9.0
+595,"2021","Karnataka","29","Fault Of Driver",0.0,0.0,0.0
+596,"2021","Karnataka","29","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+597,"2021","Karnataka","29","Other Causes",0.0,0.0,0.0
+598,"2021","Karnataka","29","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+599,"2021","Karnataka","29","Signalmen'S Error",0.0,0.0,0.0
+600,"2021","Kerala","32","Fault Of Driver",2.0,0.0,2.0
+601,"2021","Kerala","32","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",9.0,0.0,9.0
+602,"2021","Kerala","32","Other Causes",160.0,0.0,161.0
+603,"2021","Kerala","32","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+604,"2021","Kerala","32","Signalmen'S Error",0.0,0.0,0.0
+605,"2021","Ladakh","37","Fault Of Driver",0.0,0.0,0.0
+606,"2021","Ladakh","37","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+607,"2021","Ladakh","37","Other Causes",0.0,0.0,0.0
+608,"2021","Ladakh","37","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+609,"2021","Ladakh","37","Signalmen'S Error",0.0,0.0,0.0
+610,"2021","Lakshadweep","31","Fault Of Driver",0.0,0.0,0.0
+611,"2021","Lakshadweep","31","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+612,"2021","Lakshadweep","31","Other Causes",0.0,0.0,0.0
+613,"2021","Lakshadweep","31","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+614,"2021","Lakshadweep","31","Signalmen'S Error",0.0,0.0,0.0
+615,"2021","Madhya Pradesh","23","Fault Of Driver",0.0,0.0,0.0
+616,"2021","Madhya Pradesh","23","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+617,"2021","Madhya Pradesh","23","Other Causes",1078.0,0.0,1079.0
+618,"2021","Madhya Pradesh","23","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+619,"2021","Madhya Pradesh","23","Signalmen'S Error",0.0,0.0,0.0
+620,"2021","Maharashtra","27","Fault Of Driver",0.0,0.0,0.0
+621,"2021","Maharashtra","27","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+622,"2021","Maharashtra","27","Other Causes",3488.0,957.0,2535.0
+623,"2021","Maharashtra","27","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+624,"2021","Maharashtra","27","Signalmen'S Error",0.0,0.0,0.0
+625,"2021","Manipur","14","Fault Of Driver",0.0,0.0,0.0
+626,"2021","Manipur","14","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+627,"2021","Manipur","14","Other Causes",0.0,0.0,0.0
+628,"2021","Manipur","14","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+629,"2021","Manipur","14","Signalmen'S Error",0.0,0.0,0.0
+630,"2021","Meghalaya","17","Fault Of Driver",0.0,0.0,0.0
+631,"2021","Meghalaya","17","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+632,"2021","Meghalaya","17","Other Causes",0.0,0.0,0.0
+633,"2021","Meghalaya","17","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+634,"2021","Meghalaya","17","Signalmen'S Error",0.0,0.0,0.0
+635,"2021","Mizoram","15","Fault Of Driver",0.0,0.0,0.0
+636,"2021","Mizoram","15","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+637,"2021","Mizoram","15","Other Causes",0.0,0.0,0.0
+638,"2021","Mizoram","15","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+639,"2021","Mizoram","15","Signalmen'S Error",0.0,0.0,0.0
+640,"2021","Nagaland","13","Fault Of Driver",0.0,0.0,0.0
+641,"2021","Nagaland","13","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+642,"2021","Nagaland","13","Other Causes",0.0,0.0,0.0
+643,"2021","Nagaland","13","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+644,"2021","Nagaland","13","Signalmen'S Error",0.0,0.0,0.0
+645,"2021","Odisha","21","Fault Of Driver",0.0,0.0,0.0
+646,"2021","Odisha","21","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+647,"2021","Odisha","21","Other Causes",306.0,94.0,306.0
+648,"2021","Odisha","21","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+649,"2021","Odisha","21","Signalmen'S Error",0.0,0.0,0.0
+650,"2021","Puducherry","34","Fault Of Driver",0.0,0.0,0.0
+651,"2021","Puducherry","34","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+652,"2021","Puducherry","34","Other Causes",0.0,0.0,0.0
+653,"2021","Puducherry","34","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+654,"2021","Puducherry","34","Signalmen'S Error",0.0,0.0,0.0
+655,"2021","Punjab","3","Fault Of Driver",0.0,0.0,0.0
+656,"2021","Punjab","3","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+657,"2021","Punjab","3","Other Causes",615.0,40.0,576.0
+658,"2021","Punjab","3","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+659,"2021","Punjab","3","Signalmen'S Error",0.0,0.0,0.0
+660,"2021","Rajasthan","8","Fault Of Driver",0.0,0.0,0.0
+661,"2021","Rajasthan","8","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+662,"2021","Rajasthan","8","Other Causes",669.0,17.0,655.0
+663,"2021","Rajasthan","8","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+664,"2021","Rajasthan","8","Signalmen'S Error",0.0,0.0,0.0
+665,"2021","Sikkim","11","Fault Of Driver",0.0,0.0,0.0
+666,"2021","Sikkim","11","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+667,"2021","Sikkim","11","Other Causes",0.0,0.0,0.0
+668,"2021","Sikkim","11","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+669,"2021","Sikkim","11","Signalmen'S Error",0.0,0.0,0.0
+670,"2021","Tamil Nadu","33","Fault Of Driver",0.0,0.0,0.0
+671,"2021","Tamil Nadu","33","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+672,"2021","Tamil Nadu","33","Other Causes",1407.0,107.0,1300.0
+673,"2021","Tamil Nadu","33","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+674,"2021","Tamil Nadu","33","Signalmen'S Error",0.0,0.0,0.0
+675,"2021","Telangana","36","Fault Of Driver",0.0,0.0,0.0
+676,"2021","Telangana","36","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+677,"2021","Telangana","36","Other Causes",408.0,0.0,412.0
+678,"2021","Telangana","36","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+679,"2021","Telangana","36","Signalmen'S Error",0.0,0.0,0.0
+680,"2021","The Dadra And Nagar Haveli And Daman And Diu","38","Fault Of Driver",0.0,0.0,0.0
+681,"2021","The Dadra And Nagar Haveli And Daman And Diu","38","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+682,"2021","The Dadra And Nagar Haveli And Daman And Diu","38","Other Causes",0.0,0.0,0.0
+683,"2021","The Dadra And Nagar Haveli And Daman And Diu","38","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+684,"2021","The Dadra And Nagar Haveli And Daman And Diu","38","Signalmen'S Error",0.0,0.0,0.0
+685,"2021","Tripura","16","Fault Of Driver",0.0,0.0,0.0
+686,"2021","Tripura","16","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+687,"2021","Tripura","16","Other Causes",4.0,0.0,5.0
+688,"2021","Tripura","16","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+689,"2021","Tripura","16","Signalmen'S Error",0.0,0.0,0.0
+690,"2021","Uttar Pradesh","9","Fault Of Driver",2.0,0.0,2.0
+691,"2021","Uttar Pradesh","9","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",26.0,0.0,27.0
+692,"2021","Uttar Pradesh","9","Other Causes",2126.0,281.0,1946.0
+693,"2021","Uttar Pradesh","9","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+694,"2021","Uttar Pradesh","9","Signalmen'S Error",69.0,0.0,69.0
+695,"2021","Uttarakhand","5","Fault Of Driver",0.0,0.0,0.0
+696,"2021","Uttarakhand","5","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",5.0,0.0,5.0
+697,"2021","Uttarakhand","5","Other Causes",20.0,0.0,24.0
+698,"2021","Uttarakhand","5","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+699,"2021","Uttarakhand","5","Signalmen'S Error",0.0,0.0,0.0
+700,"2021","West Bengal","19","Fault Of Driver",10.0,0.0,9.0
+701,"2021","West Bengal","19","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",6.0,0.0,7.0
+702,"2021","West Bengal","19","Other Causes",2409.0,146.0,2266.0
+703,"2021","West Bengal","19","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+704,"2021","West Bengal","19","Signalmen'S Error",0.0,0.0,0.0
+705,"2022","Andaman And Nicobar Islands","35","Fault Of Driver",0.0,0.0,0.0
+706,"2022","Andaman And Nicobar Islands","35","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+707,"2022","Andaman And Nicobar Islands","35","Other Causes",0.0,0.0,0.0
+708,"2022","Andaman And Nicobar Islands","35","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+709,"2022","Andaman And Nicobar Islands","35","Signalmen'S Error",0.0,0.0,0.0
+710,"2022","Andhra Pradesh","28","Fault Of Driver",0.0,0.0,0.0
+711,"2022","Andhra Pradesh","28","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+712,"2022","Andhra Pradesh","28","Other Causes",1029.0,0.0,1037.0
+713,"2022","Andhra Pradesh","28","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+714,"2022","Andhra Pradesh","28","Signalmen'S Error",0.0,0.0,0.0
+715,"2022","Arunachal Pradesh","12","Fault Of Driver",0.0,0.0,0.0
+716,"2022","Arunachal Pradesh","12","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+717,"2022","Arunachal Pradesh","12","Other Causes",0.0,0.0,0.0
+718,"2022","Arunachal Pradesh","12","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+719,"2022","Arunachal Pradesh","12","Signalmen'S Error",0.0,0.0,0.0
+720,"2022","Assam","18","Fault Of Driver",1.0,0.0,1.0
+721,"2022","Assam","18","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",688.0,0.0,692.0
+722,"2022","Assam","18","Other Causes",0.0,0.0,0.0
+723,"2022","Assam","18","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+724,"2022","Assam","18","Signalmen'S Error",0.0,0.0,0.0
+725,"2022","Bihar","10","Fault Of Driver",0.0,0.0,0.0
+726,"2022","Bihar","10","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",15.0,0.0,15.0
+727,"2022","Bihar","10","Other Causes",1396.0,0.0,1398.0
+728,"2022","Bihar","10","Sabotage By Extremist/Terrorist/Others",5.0,6.0,5.0
+729,"2022","Bihar","10","Signalmen'S Error",28.0,0.0,28.0
+730,"2022","Chandigarh","4","Fault Of Driver",0.0,0.0,0.0
+731,"2022","Chandigarh","4","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+732,"2022","Chandigarh","4","Other Causes",0.0,0.0,0.0
+733,"2022","Chandigarh","4","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+734,"2022","Chandigarh","4","Signalmen'S Error",0.0,0.0,0.0
+735,"2022","Chhattisgarh","22","Fault Of Driver",0.0,0.0,0.0
+736,"2022","Chhattisgarh","22","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+737,"2022","Chhattisgarh","22","Other Causes",429.0,21.0,429.0
+738,"2022","Chhattisgarh","22","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+739,"2022","Chhattisgarh","22","Signalmen'S Error",0.0,0.0,0.0
+740,"2022","Delhi","7","Fault Of Driver",0.0,0.0,0.0
+741,"2022","Delhi","7","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+742,"2022","Delhi","7","Other Causes",796.0,105.0,691.0
+743,"2022","Delhi","7","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+744,"2022","Delhi","7","Signalmen'S Error",0.0,0.0,0.0
+745,"2022","Goa","30","Fault Of Driver",0.0,0.0,0.0
+746,"2022","Goa","30","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+747,"2022","Goa","30","Other Causes",54.0,0.0,54.0
+748,"2022","Goa","30","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+749,"2022","Goa","30","Signalmen'S Error",0.0,0.0,0.0
+750,"2022","Gujarat","24","Fault Of Driver",0.0,0.0,0.0
+751,"2022","Gujarat","24","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+752,"2022","Gujarat","24","Other Causes",766.0,0.0,777.0
+753,"2022","Gujarat","24","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+754,"2022","Gujarat","24","Signalmen'S Error",0.0,0.0,0.0
+755,"2022","Haryana","6","Fault Of Driver",0.0,0.0,0.0
+756,"2022","Haryana","6","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+757,"2022","Haryana","6","Other Causes",1127.0,26.0,1101.0
+758,"2022","Haryana","6","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+759,"2022","Haryana","6","Signalmen'S Error",0.0,0.0,0.0
+760,"2022","Himachal Pradesh","2","Fault Of Driver",0.0,0.0,0.0
+761,"2022","Himachal Pradesh","2","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+762,"2022","Himachal Pradesh","2","Other Causes",0.0,0.0,0.0
+763,"2022","Himachal Pradesh","2","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+764,"2022","Himachal Pradesh","2","Signalmen'S Error",0.0,0.0,0.0
+765,"2022","Jammu And Kashmir","1","Fault Of Driver",0.0,0.0,0.0
+766,"2022","Jammu And Kashmir","1","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+767,"2022","Jammu And Kashmir","1","Other Causes",49.0,2.0,49.0
+768,"2022","Jammu And Kashmir","1","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+769,"2022","Jammu And Kashmir","1","Signalmen'S Error",0.0,0.0,0.0
+770,"2022","Jharkhand","20","Fault Of Driver",21.0,0.0,21.0
+771,"2022","Jharkhand","20","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",71.0,0.0,71.0
+772,"2022","Jharkhand","20","Other Causes",269.0,19.0,253.0
+773,"2022","Jharkhand","20","Sabotage By Extremist/Terrorist/Others",1.0,0.0,1.0
+774,"2022","Jharkhand","20","Signalmen'S Error",0.0,0.0,0.0
+775,"2022","Karnataka","29","Fault Of Driver",0.0,0.0,0.0
+776,"2022","Karnataka","29","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+777,"2022","Karnataka","29","Other Causes",0.0,0.0,0.0
+778,"2022","Karnataka","29","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+779,"2022","Karnataka","29","Signalmen'S Error",0.0,0.0,0.0
+780,"2022","Kerala","32","Fault Of Driver",1.0,0.0,1.0
+781,"2022","Kerala","32","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",13.0,0.0,13.0
+782,"2022","Kerala","32","Other Causes",180.0,0.0,180.0
+783,"2022","Kerala","32","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+784,"2022","Kerala","32","Signalmen'S Error",0.0,0.0,0.0
+785,"2022","Ladakh","37","Fault Of Driver",0.0,0.0,0.0
+786,"2022","Ladakh","37","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+787,"2022","Ladakh","37","Other Causes",0.0,0.0,0.0
+788,"2022","Ladakh","37","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+789,"2022","Ladakh","37","Signalmen'S Error",0.0,0.0,0.0
+790,"2022","Lakshadweep","31","Fault Of Driver",0.0,0.0,0.0
+791,"2022","Lakshadweep","31","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+792,"2022","Lakshadweep","31","Other Causes",0.0,0.0,0.0
+793,"2022","Lakshadweep","31","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+794,"2022","Lakshadweep","31","Signalmen'S Error",0.0,0.0,0.0
+795,"2022","Madhya Pradesh","23","Fault Of Driver",0.0,0.0,0.0
+796,"2022","Madhya Pradesh","23","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+797,"2022","Madhya Pradesh","23","Other Causes",1275.0,0.0,1275.0
+798,"2022","Madhya Pradesh","23","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+799,"2022","Madhya Pradesh","23","Signalmen'S Error",0.0,0.0,0.0
+800,"2022","Maharashtra","27","Fault Of Driver",0.0,0.0,0.0
+801,"2022","Maharashtra","27","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+802,"2022","Maharashtra","27","Other Causes",4827.0,1686.0,3145.0
+803,"2022","Maharashtra","27","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+804,"2022","Maharashtra","27","Signalmen'S Error",0.0,0.0,0.0
+805,"2022","Manipur","14","Fault Of Driver",0.0,0.0,0.0
+806,"2022","Manipur","14","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+807,"2022","Manipur","14","Other Causes",2.0,0.0,2.0
+808,"2022","Manipur","14","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+809,"2022","Manipur","14","Signalmen'S Error",0.0,0.0,0.0
+810,"2022","Meghalaya","17","Fault Of Driver",0.0,0.0,0.0
+811,"2022","Meghalaya","17","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+812,"2022","Meghalaya","17","Other Causes",0.0,0.0,0.0
+813,"2022","Meghalaya","17","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+814,"2022","Meghalaya","17","Signalmen'S Error",0.0,0.0,0.0
+815,"2022","Mizoram","15","Fault Of Driver",0.0,0.0,0.0
+816,"2022","Mizoram","15","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+817,"2022","Mizoram","15","Other Causes",0.0,0.0,0.0
+818,"2022","Mizoram","15","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+819,"2022","Mizoram","15","Signalmen'S Error",0.0,0.0,0.0
+820,"2022","Nagaland","13","Fault Of Driver",0.0,0.0,0.0
+821,"2022","Nagaland","13","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+822,"2022","Nagaland","13","Other Causes",0.0,0.0,0.0
+823,"2022","Nagaland","13","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+824,"2022","Nagaland","13","Signalmen'S Error",0.0,0.0,0.0
+825,"2022","Odisha","21","Fault Of Driver",0.0,0.0,0.0
+826,"2022","Odisha","21","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+827,"2022","Odisha","21","Other Causes",27.0,0.0,27.0
+828,"2022","Odisha","21","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+829,"2022","Odisha","21","Signalmen'S Error",0.0,0.0,0.0
+830,"2022","Puducherry","34","Fault Of Driver",0.0,0.0,0.0
+831,"2022","Puducherry","34","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+832,"2022","Puducherry","34","Other Causes",9.0,0.0,9.0
+833,"2022","Puducherry","34","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+834,"2022","Puducherry","34","Signalmen'S Error",0.0,0.0,0.0
+835,"2022","Punjab","3","Fault Of Driver",0.0,0.0,0.0
+836,"2022","Punjab","3","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+837,"2022","Punjab","3","Other Causes",978.0,74.0,914.0
+838,"2022","Punjab","3","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+839,"2022","Punjab","3","Signalmen'S Error",0.0,0.0,0.0
+840,"2022","Rajasthan","8","Fault Of Driver",0.0,0.0,0.0
+841,"2022","Rajasthan","8","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+842,"2022","Rajasthan","8","Other Causes",942.0,8.0,943.0
+843,"2022","Rajasthan","8","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+844,"2022","Rajasthan","8","Signalmen'S Error",0.0,0.0,0.0
+845,"2022","Sikkim","11","Fault Of Driver",0.0,0.0,0.0
+846,"2022","Sikkim","11","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+847,"2022","Sikkim","11","Other Causes",0.0,0.0,0.0
+848,"2022","Sikkim","11","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+849,"2022","Sikkim","11","Signalmen'S Error",0.0,0.0,0.0
+850,"2022","Tamil Nadu","33","Fault Of Driver",0.0,0.0,0.0
+851,"2022","Tamil Nadu","33","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+852,"2022","Tamil Nadu","33","Other Causes",2012.0,189.0,1833.0
+853,"2022","Tamil Nadu","33","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+854,"2022","Tamil Nadu","33","Signalmen'S Error",0.0,0.0,0.0
+855,"2022","Telangana","36","Fault Of Driver",0.0,0.0,0.0
+856,"2022","Telangana","36","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+857,"2022","Telangana","36","Other Causes",616.0,0.0,625.0
+858,"2022","Telangana","36","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+859,"2022","Telangana","36","Signalmen'S Error",0.0,0.0,0.0
+860,"2022","The Dadra And Nagar Haveli And Daman And Diu","38","Fault Of Driver",0.0,0.0,0.0
+861,"2022","The Dadra And Nagar Haveli And Daman And Diu","38","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+862,"2022","The Dadra And Nagar Haveli And Daman And Diu","38","Other Causes",0.0,0.0,0.0
+863,"2022","The Dadra And Nagar Haveli And Daman And Diu","38","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+864,"2022","The Dadra And Nagar Haveli And Daman And Diu","38","Signalmen'S Error",0.0,0.0,0.0
+865,"2022","Tripura","16","Fault Of Driver",0.0,0.0,0.0
+866,"2022","Tripura","16","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+867,"2022","Tripura","16","Other Causes",27.0,0.0,27.0
+868,"2022","Tripura","16","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+869,"2022","Tripura","16","Signalmen'S Error",0.0,0.0,0.0
+870,"2022","Uttar Pradesh","9","Fault Of Driver",18.0,0.0,16.0
+871,"2022","Uttar Pradesh","9","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",116.0,0.0,116.0
+872,"2022","Uttar Pradesh","9","Other Causes",3055.0,35.0,3033.0
+873,"2022","Uttar Pradesh","9","Sabotage By Extremist/Terrorist/Others",1.0,0.0,1.0
+874,"2022","Uttar Pradesh","9","Signalmen'S Error",0.0,0.0,0.0
+875,"2022","Uttarakhand","5","Fault Of Driver",0.0,0.0,0.0
+876,"2022","Uttarakhand","5","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+877,"2022","Uttarakhand","5","Other Causes",74.0,0.0,74.0
+878,"2022","Uttarakhand","5","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+879,"2022","Uttarakhand","5","Signalmen'S Error",0.0,0.0,0.0
+880,"2022","West Bengal","19","Fault Of Driver",0.0,0.0,0.0
+881,"2022","West Bengal","19","Mechanical Failures (Like Poor Design, Track Faults, Bridge/Tunnel Collapse Etc.)",0.0,0.0,0.0
+882,"2022","West Bengal","19","Other Causes",2221.0,286.0,1935.0
+883,"2022","West Bengal","19","Sabotage By Extremist/Terrorist/Others",0.0,0.0,0.0
+884,"2022","West Bengal","19","Signalmen'S Error",0.0,0.0,0.0
