@@ -1,16 +1,16 @@
 <div align="center">
 
-# 🛣️ SafeRoute AI
+# SafeRoute AI
 
-### Road Accident Risk Prediction & Analytics Dashboard
+### Production-Ready Accident Risk Prediction and Analytics
 
 ![Python](https://img.shields.io/badge/Python-3.9%2B-blue?logo=python&logoColor=white)
 ![Streamlit](https://img.shields.io/badge/Streamlit-Dashboard-FF4B4B?logo=streamlit&logoColor=white)
 ![scikit-learn](https://img.shields.io/badge/scikit--learn-ML-F7931E?logo=scikitlearn&logoColor=white)
-![XGBoost](https://img.shields.io/badge/XGBoost-Model-green)
+![GradientBoosting](https://img.shields.io/badge/GradientBoosting-Model-green)
 ![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
-**SafeRoute AI** is an end-to-end machine learning system that predicts the risk of a severe road accident based on driver behavior, vehicle type, road conditions, and environmental factors — all visualized through an interactive Streamlit dashboard.
+SafeRoute AI is an end-to-end machine learning system that predicts the risk of a severe road accident based on road context, vehicle speed, traffic, visibility, and time conditions through an interactive Streamlit app.
 
 </div>
 
@@ -25,51 +25,58 @@
 - [Datasets](#-datasets)
 - [How It Works](#-how-it-works)
 - [Getting Started](#-getting-started)
-- [Model Performance](#-model-performance)
-- [Dashboard Tabs](#-dashboard-tabs)
-- [Future Improvements](#-future-improvements)
+- [Modeling Pipeline](#-modeling-pipeline)
+- [Model Evaluation](#-model-evaluation)
+- [Run Locally](#-run-locally)
+- [Deploy On Streamlit Cloud](#-deploy-on-streamlit-cloud)
 
 ---
 
-## 🔍 Overview
+## Overview
 
-Road accidents are driven by a complex mix of human, mechanical, and environmental factors. **SafeRoute AI** takes 12 input variables and returns a real-time risk score (Low / Medium / High) alongside visual analytics drawn from national traffic datasets.
+This project upgrades a prototype into a portfolio-quality ML application with:
 
-> Built as a prototype for intelligent road safety analysis using real-world Indian accident data.
-
----
-
-## ✨ Key Features
-
-- 🎯 **Real-time Risk Prediction** — Instant accident risk scoring with confidence percentage
-- 📊 **Interactive Analytics Dashboard** — 5-tab Streamlit interface with Plotly charts
-- 🧠 **Multi-model Training** — Logistic Regression, Random Forest, and XGBoost compared automatically
-- 🔧 **Modular Architecture** — Clean separation of data loading, preprocessing, training, and inference
-- 📈 **Trend Analysis** — Cause-wise, road-type, time-of-day, and monthly accident breakdowns
-- ⚡ **Efficient Inference** — Cached model loading, ~47ms prediction latency
+- Proper training and inference pipeline design
+- Model comparison across multiple algorithms
+- Input validation and robust preprocessing
+- Explainability through feature importance and top risk factors
+- Streamlit performance optimizations with caching
 
 ---
 
-## 🛠️ Tech Stack
+## Key Features
 
-| Layer                 | Tools                 |
-| --------------------- | --------------------- |
-| **Dashboard**         | Streamlit, Plotly     |
-| **Machine Learning**  | scikit-learn, XGBoost |
-| **Data Processing**   | pandas, numpy         |
-| **Model Persistence** | joblib                |
-| **Notebook / EDA**    | Jupyter, matplotlib   |
+- Real-time risk prediction with probability and risk category (Low, Medium, High)
+- Model benchmark across RandomForestClassifier, LogisticRegression, and GradientBoostingClassifier
+- End-to-end sklearn pipeline with preprocessing + model persistence
+- Explainability with feature importance and top contributing factors
+- Batch CSV prediction upload and downloadable reports
+- Prediction history logging and download
+- Streamlit performance with cached model/data loading
 
 ---
 
-## 📁 Project Structure
+## Tech Stack
+
+| Layer                 | Tools               |
+| --------------------- | ------------------- |
+| **Dashboard**         | Streamlit, Plotly   |
+| **Machine Learning**  | scikit-learn        |
+| **Data Processing**   | pandas, numpy       |
+| **Model Persistence** | joblib              |
+| **Notebook / EDA**    | Jupyter, matplotlib |
+
+---
+
+## Project Structure
 
 ```
 accident_prediction_project/
 │
 ├── app/
-│   ├── streamlit_app.py        # Main Streamlit dashboard
-│   └── prediction_ui.py        # Professional prediction result UI
+│   ├── app.py                  # New production-style Streamlit app
+│   ├── streamlit_app.py        # Deployment entrypoint
+│   └── prediction_ui.py        # Legacy UI component
 │
 ├── data/
 │   ├── accident_prediction_india.csv          # Main ML training dataset
@@ -79,8 +86,12 @@ accident_prediction_project/
 │   └── time-of-occurrence-wise-number-of-traffic-accidents.csv
 │
 ├── models/
-│   ├── accident_model.pkl      # Trained best model
-│   └── preprocessor.pkl        # Fitted preprocessing pipeline
+│   ├── model.pkl               # Primary persisted sklearn pipeline
+│   ├── accident_model.pkl      # Backward-compatible model artifact
+│   ├── preprocessor.pkl        # Backward-compatible preprocessor artifact
+│   ├── model_comparison.csv    # Evaluation table
+│   ├── model_metrics.json      # Metrics and selected model
+│   └── feature_importance.csv  # Explainability artifact
 │
 ├── notebooks/
 │   └── eda.ipynb               # Exploratory Data Analysis
@@ -89,10 +100,11 @@ accident_prediction_project/
 │   ├── analytics.py            # Chart generation from supporting datasets
 │   ├── data_loader.py          # Defensive multi-format dataset loader
 │   ├── evaluate_model.py       # Model evaluation and comparison
-│   ├── feature_engineering.py  # Feature selection and target encoding
-│   ├── predict.py              # Inference pipeline
-│   ├── preprocessing.py        # ColumnTransformer pipeline
-│   ├── train_model.py          # Main training script
+│   ├── data_preprocessing.py   # Feature engineering + train/test preparation
+│   ├── feature_engineering.py  # Legacy feature helpers
+│   ├── predict.py              # Inference + validation + factor explanation
+│   ├── preprocessing.py        # Legacy preprocessing helpers
+│   ├── train_model.py          # Model training, comparison, persistence
 │   └── utils.py                # Shared utilities
 │
 ├── requirements.txt
@@ -102,113 +114,97 @@ accident_prediction_project/
 
 ---
 
-## 📂 Datasets
+## Modeling Pipeline
 
-### Training Dataset
+The upgraded ML workflow follows production-style design:
 
-| File                            | Purpose                                      |
-| ------------------------------- | -------------------------------------------- |
-| `accident_prediction_india.csv` | 3,000-row dataset used for ML model training |
+1. Load and standardize dataset columns
+2. Engineer portfolio-focused features:
+   - vehicle_speed
+   - weather_condition
+   - road_type
+   - traffic_density
+   - time_of_day
+   - driver_fatigue
+   - road_lighting
+   - visibility_level
+3. Train/test split with stratification (where possible)
+4. ColumnTransformer preprocessing:
+   - Numeric: median imputation + StandardScaler
+   - Categorical: constant imputation + OneHotEncoder
+5. Train three candidate models:
+   - RandomForestClassifier
+   - LogisticRegression
+   - GradientBoostingClassifier
+6. Evaluate using:
+   - Accuracy
+   - Precision
+   - Recall
+   - F1 Score
+   - Confusion Matrix
+7. Persist best model as model.pkl
 
-### Analytics Datasets (Dashboard Only)
+## Model Evaluation
 
-| File                                               | Used For                 |
-| -------------------------------------------------- | ------------------------ |
-| `cause-wise-distribution-of-railway-accidents.csv` | Cause analysis charts    |
-| `road-classification-wise-...csv`                  | Road type breakdown      |
-| `time-of-occurrence-wise-...csv`                   | Time-of-day trend charts |
-| `month-of-occurrence-wise-...csv`                  | Monthly trend charts     |
+Model comparisons are exported to:
 
-> The data loader auto-detects available file variants (CSV/XLSX) and handles missing columns gracefully.
+- models/model_comparison.csv
+- models/model_metrics.json
+- models/feature_importance.csv
 
----
+## Run Locally
 
-## ⚙️ How It Works
-
-```
-Raw Input (12 features)
-        ↓
-  Data Cleaning & Standardization
-        ↓
-  Feature Engineering (binary target, encoding)
-        ↓
-  ColumnTransformer (StandardScaler + OneHotEncoder)
-        ↓
-  Model Selection (Logistic Regression / Random Forest / XGBoost)
-        ↓
-  Best Model Saved → Inference Pipeline
-        ↓
-  Risk Score Output (Low / Medium / High) + Recommendations
-```
-
-**Model Selection Logic:** Models are ranked by F1 score first, then ROC AUC. The best-performing model is saved automatically to `models/`.
-
----
-
-## 🚀 Getting Started
-
-### 1. Clone the Repository
+1. Clone repository
 
 ```bash
 git clone https://github.com/onimess015/Prototype_accident.git
 cd Prototype_accident/accident_prediction_project
 ```
 
-### 2. Install Dependencies
+2. Install dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 3. Train the Model
+3. Train models and generate artifacts
 
 ```bash
 python -m src.train_model
 ```
 
-### 4. Launch the Dashboard
+4. Run Streamlit app
 
 ```bash
-python -m streamlit run app/streamlit_app.py
+streamlit run app/streamlit_app.py
 ```
 
-### 5. Run Tests
+5. Run verification script
 
 ```bash
-python test_quick.py
+python run_tests.py
 ```
 
----
+## Deploy On Streamlit Cloud
 
-## 📊 Model Performance
+1. Push repository to GitHub
+2. In Streamlit Cloud, create a new app from your repo
+3. Set main file path to:
 
-| Model                             | Accuracy | F1 Score |
-| --------------------------------- | -------- | -------- |
-| **Random Forest** ✅ _(selected)_ | 65.33%   | 0.7903   |
-| XGBoost                           | ~58%     | —        |
-| Logistic Regression               | —        | —        |
+```
+accident_prediction_project/app/streamlit_app.py
+```
 
-> The dataset has a class imbalance of ~1.9:1 (Severe vs Low Risk). `class_weight="balanced"` is applied during training.
+4. Ensure root requirements forwarding file exists at repository root:
 
----
+```
+-r accident_prediction_project/requirements.txt
+```
 
-## 🖥️ Dashboard Tabs
+5. Ensure runtime pin exists at repository root:
 
-| Tab                       | Description                                                     |
-| ------------------------- | --------------------------------------------------------------- |
-| **🎯 Prediction**         | Enter driver/vehicle/road details and get an instant risk score |
-| **⚠️ Accident Causes**    | Bar chart of cause-wise accident distribution                   |
-| **🛣️ Road Type Analysis** | Breakdown of accidents by road classification                   |
-| **🕐 Time Trends**        | Hourly/time-of-day accident frequency chart                     |
-| **📅 Monthly Trends**     | Month-wise accident occurrence patterns                         |
+```
+python-3.11.9
+```
 
----
-
-## 🔮 Future Improvements
-
-- [ ] SHAP-based model explainability for individual predictions
-- [ ] Live weather and traffic feed integration
-- [ ] Model drift monitoring and automated retraining
-- [ ] FastAPI backend for production REST API serving
-- [ ] Downloadable PDF risk reports
-- [ ] Map-based geospatial accident hotspot visualization
+6. Deploy and verify first run creates/loads model artifacts in models/
