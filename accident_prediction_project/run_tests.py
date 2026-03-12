@@ -7,7 +7,6 @@ from pathlib import Path
 # Set up proper import paths
 project_root = Path(__file__).parent
 sys.path.insert(0, str(project_root))
-sys.path.insert(0, str(project_root / "src"))
 sys.path.insert(0, str(project_root / "app"))
 
 print("=" * 70)
@@ -17,11 +16,11 @@ print("=" * 70)
 # Test 1: Module imports
 print("\n[TEST 1/6] Testing module imports...")
 try:
-    from data_loader import load_main_dataset
-    from preprocessing import clean_dataframe
-    from feature_engineering import select_features_and_target
-    from predict import load_artifacts, predict_risk
-    from preprocessing import build_preprocessor
+    from src.data_loader import load_main_dataset
+    from src.preprocessing import clean_dataframe
+    from src.feature_engineering import select_features_and_target
+    from src.predict import load_artifacts, predict_risk
+    from src.preprocessing import build_preprocessor
 
     print("  [OK] All core modules imported successfully")
 except Exception as e:
