@@ -8,7 +8,7 @@ import joblib
 import numpy as np
 import pandas as pd
 
-from .data_preprocessing import REQUIRED_MODEL_FEATURES
+from .data_preprocessing import REQUIRED_MODEL_FEATURES, NUMERIC_MODEL_FEATURES
 from .utils import MODELS_DIR
 
 
@@ -61,7 +61,9 @@ def _validate_payload(input_dict: dict[str, Any]) -> dict[str, Any]:
 
     for feature_name in REQUIRED_MODEL_FEATURES:
         if feature_name not in validated:
-            validated[feature_name] = "Unknown"
+            validated[feature_name] = (
+                np.nan if feature_name in NUMERIC_MODEL_FEATURES else "Unknown"
+            )
 
     for boolean_like_feature in ["alcohol_involvement"]:
         raw_value = str(validated.get(boolean_like_feature, "Unknown")).strip().lower()
@@ -69,6 +71,45 @@ def _validate_payload(input_dict: dict[str, Any]) -> dict[str, Any]:
             validated[boolean_like_feature] = "Yes"
         elif raw_value in {"0", "false", "no", "n"}:
             validated[boolean_like_feature] = "No"
+
+    weather = str(validated.get("weather_condition", "Unknown"))
+    lighting = str(validated.get("road_lighting", "Unknown"))
+    traffic = str(validated.get("traffic_density", "Unknown"))
+    time_of_day = str(validated.get("time_of_day", "Unknown"))
+
+    speed = float(validated.get("vehicle_speed", 0.0) or 0.0)
+    if speed < 40:
+        validated["speed_band"] = "low"
+    elif speed < 70:
+        validated["speed_band"] = "moderate"
+    elif speed < 100:
+        validated["speed_band"] = "high"
+    else:
+        validated["speed_band"] = "very_high"
+
+    weather_text = weather.strip().lower()
+    if weather_text in {"clear", "sunny"}:
+        validated["weather_severity"] = "benign"
+    elif weather_text in {"hazy", "cloudy"}:
+        validated["weather_severity"] = "mild"
+    elif weather_text in {"rain", "rainy", "fog", "foggy", "snow"}:
+        validated["weather_severity"] = "adverse"
+    elif weather_text in {"storm", "stormy", "thunderstorm"}:
+        validated["weather_severity"] = "severe"
+    else:
+        validated["weather_severity"] = "unknown"
+
+    time_text = time_of_day.strip().lower()
+    traffic_text = traffic.strip().lower()
+    light_text = lighting.strip().lower()
+    if time_text == "night" and (
+        traffic_text == "high" or light_text in {"dark", "poor", "dusk", "dawn"}
+    ):
+        validated["contextual_risk"] = "elevated"
+    elif traffic_text == "high":
+        validated["contextual_risk"] = "moderate"
+    else:
+        validated["contextual_risk"] = "baseline"
 
     return validated
 
@@ -186,6 +227,9 @@ def _normalize_importance_name(raw_name: str) -> str:
 
 
 def _top_risk_factors(model, input_frame: pd.DataFrame) -> list[str]:
+    if hasattr(model, "top_features_") and model.top_features_:
+        return [str(name).replace("_", " ").title() for name in model.top_features_[:3]]
+
     if not hasattr(model, "named_steps"):
         return []
 

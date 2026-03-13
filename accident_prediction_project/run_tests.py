@@ -142,11 +142,20 @@ print(f"  Model: {best_model_name}")
 print(f"  Dataset size: {raw_df.shape[0]} samples")
 print(f"  Features: {X.shape[1]} engineered features")
 if best_row:
-    print(f"  Test accuracy: {float(best_row.get('accuracy', 0.0)) * 100:.2f}%")
+    test_accuracy = float(best_row.get("accuracy", 0.0))
+    print(f"  Test accuracy: {test_accuracy * 100:.2f}%")
     if "balanced_accuracy" in best_row:
-        print(
-            f"  Test balanced accuracy: {float(best_row.get('balanced_accuracy', 0.0)) * 100:.2f}%"
-        )
+        balanced_accuracy = float(best_row.get("balanced_accuracy", 0.0))
+        print(f"  Test balanced accuracy: {balanced_accuracy * 100:.2f}%")
+        assert (
+            balanced_accuracy >= 0.50
+        ), f"Balanced accuracy too low: {balanced_accuracy:.4f}"
+    specificity = float(best_row.get("specificity", 0.0))
+    print(f"  Test specificity: {specificity * 100:.2f}%")
+    assert specificity >= 0.10, f"Specificity too low: {specificity:.4f}"
+    assert not bool(
+        best_row.get("degenerate_prediction_flag", False)
+    ), "Degenerate prediction behavior detected"
 print(f"  Dashboard: Streamlit with professional UI")
 print("\nTo launch the dashboard:")
 print("  streamlit run app/streamlit_app.py")

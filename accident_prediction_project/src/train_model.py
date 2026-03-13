@@ -6,12 +6,17 @@ import joblib
 import numpy as np
 import pandas as pd
 from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
+from sklearn.ensemble import (
+    GradientBoostingClassifier,
+    RandomForestClassifier,
+    StackingClassifier,
+)
 from sklearn.impute import SimpleImputer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
     accuracy_score,
     balanced_accuracy_score,
+    brier_score_loss,
     confusion_matrix,
     f1_score,
     matthews_corrcoef,
@@ -23,7 +28,11 @@ from sklearn.model_selection import StratifiedKFold, cross_validate, train_test_
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
-from .data_preprocessing import REQUIRED_MODEL_FEATURES, load_and_prepare_data
+from .data_preprocessing import (
+    REQUIRED_MODEL_FEATURES,
+    NUMERIC_MODEL_FEATURES,
+    load_and_prepare_data,
+)
 from .utils import MODELS_DIR, ensure_directory
 
 
@@ -94,6 +103,9 @@ def _evaluate_model(
             if y_score is not None and len(np.unique(y_data)) > 1
             else None
         ),
+        "brier_score": (
+            float(brier_score_loss(y_data, y_score)) if y_score is not None else None
+        ),
     }
     return metrics
 
@@ -101,36 +113,144 @@ def _evaluate_model(
 def _find_best_threshold(y_true: pd.Series, y_scores: np.ndarray) -> float:
     best_threshold = 0.5
     best_score = -1.0
+    fallback_threshold = 0.5
+    fallback_score = -1.0
 
     for threshold in np.arange(0.20, 0.81, 0.02):
         y_pred = (y_scores >= threshold).astype(int)
-        score = balanced_accuracy_score(y_true, y_pred)
+        matrix = confusion_matrix(y_true, y_pred)
+        if matrix.shape == (2, 2):
+            tn, fp, fn, tp = matrix.ravel()
+            specificity = float(tn / (tn + fp)) if (tn + fp) > 0 else 0.0
+            recall = float(tp / (tp + fn)) if (tp + fn) > 0 else 0.0
+        else:
+            specificity = 0.0
+            recall = 0.0
+
+        # Avoid thresholds that collapse into one-sided predictions.
+        if specificity < 0.10 or recall < 0.10:
+            if balanced_accuracy_score(y_true, y_pred) > fallback_score:
+                fallback_score = balanced_accuracy_score(y_true, y_pred)
+                fallback_threshold = float(threshold)
+            continue
+
+        score = (
+            balanced_accuracy_score(y_true, y_pred)
+            + (0.10 * specificity)
+            + (0.10 * recall)
+        )
         if score > best_score:
             best_score = score
             best_threshold = float(threshold)
 
+        if balanced_accuracy_score(y_true, y_pred) > fallback_score:
+            fallback_score = balanced_accuracy_score(y_true, y_pred)
+            fallback_threshold = float(threshold)
+
+    if best_score < 0:
+        return fallback_threshold
+
     return best_threshold
 
 
+def _compute_sample_weight(y_data: pd.Series) -> np.ndarray:
+    counts = y_data.value_counts(dropna=False)
+    total = float(len(y_data))
+    weights = {
+        cls: total / (2.0 * float(count)) for cls, count in counts.items() if count > 0
+    }
+    return y_data.map(weights).astype(float).to_numpy()
+
+
+def _fit_model(
+    model_name: str,
+    model: Pipeline,
+    X_data: pd.DataFrame,
+    y_data: pd.Series,
+) -> None:
+    needs_weighting = model_name in {
+        "GradientBoostingClassifier",
+        "StackingClassifier",
+    }
+    if not needs_weighting:
+        model.fit(X_data, y_data)
+        return
+
+    sample_weight = _compute_sample_weight(y_data)
+    try:
+        model.fit(X_data, y_data, classifier__sample_weight=sample_weight)
+    except TypeError:
+        model.fit(X_data, y_data)
+
+
 def _extract_feature_importance(best_model: Pipeline) -> pd.DataFrame:
-    preprocessor: ColumnTransformer = best_model.named_steps["preprocessor"]
-    classifier = best_model.named_steps["classifier"]
+    if hasattr(best_model, "named_steps"):
+        preprocessor: ColumnTransformer = best_model.named_steps["preprocessor"]
+        classifier = best_model.named_steps["classifier"]
 
-    feature_names = preprocessor.get_feature_names_out().tolist()
+        feature_names = preprocessor.get_feature_names_out().tolist()
 
-    if hasattr(classifier, "feature_importances_"):
-        importance_values = classifier.feature_importances_
-    elif hasattr(classifier, "coef_"):
-        coef = classifier.coef_
-        importance_values = np.abs(coef[0] if coef.ndim > 1 else coef)
-    else:
-        importance_values = np.zeros(len(feature_names), dtype=float)
+        if hasattr(classifier, "feature_importances_"):
+            importance_values = classifier.feature_importances_
+        elif hasattr(classifier, "coef_"):
+            coef = classifier.coef_
+            importance_values = np.abs(coef[0] if coef.ndim > 1 else coef)
+        else:
+            return pd.DataFrame(columns=["feature", "importance"])
 
-    importance_frame = pd.DataFrame(
-        {"feature": feature_names, "importance": importance_values}
-    ).sort_values("importance", ascending=False)
+        importance_frame = pd.DataFrame(
+            {"feature": feature_names, "importance": importance_values}
+        ).sort_values("importance", ascending=False)
 
-    return importance_frame.reset_index(drop=True)
+        return importance_frame.reset_index(drop=True)
+
+    if hasattr(best_model, "calibrated_classifiers_"):
+        frames: list[pd.DataFrame] = []
+        for calibrated in best_model.calibrated_classifiers_:
+            estimator = getattr(calibrated, "estimator", None)
+            if estimator is None or not hasattr(estimator, "named_steps"):
+                continue
+
+            preprocessor = estimator.named_steps["preprocessor"]
+            classifier = estimator.named_steps["classifier"]
+            feature_names = preprocessor.get_feature_names_out().tolist()
+
+            if hasattr(classifier, "feature_importances_"):
+                importance_values = classifier.feature_importances_
+            elif hasattr(classifier, "coef_"):
+                coef = classifier.coef_
+                importance_values = np.abs(coef[0] if coef.ndim > 1 else coef)
+            else:
+                continue
+
+            frames.append(
+                pd.DataFrame(
+                    {"feature": feature_names, "importance": importance_values}
+                )
+            )
+
+        if frames:
+            merged = pd.concat(frames, ignore_index=True)
+            return (
+                merged.groupby("feature", as_index=False)["importance"]
+                .mean()
+                .sort_values("importance", ascending=False)
+                .reset_index(drop=True)
+            )
+
+    return pd.DataFrame(columns=["feature", "importance"])
+
+
+def _extract_preprocessor_from_model(model) -> ColumnTransformer | None:
+    if hasattr(model, "named_steps"):
+        return model.named_steps.get("preprocessor")
+
+    if hasattr(model, "calibrated_classifiers_") and model.calibrated_classifiers_:
+        estimator = getattr(model.calibrated_classifiers_[0], "estimator", None)
+        if estimator is not None and hasattr(estimator, "named_steps"):
+            return estimator.named_steps.get("preprocessor")
+
+    return None
 
 
 def _load_previous_best_metrics() -> dict[str, object] | None:
@@ -206,7 +326,7 @@ def train_and_save_model() -> tuple[Pipeline, pd.DataFrame]:
     X_train, X_test, X_holdout = prepared.X_train, prepared.X_test, prepared.X_holdout
     y_train, y_test, y_holdout = prepared.y_train, prepared.y_test, prepared.y_holdout
 
-    numeric_features = ["vehicle_speed", "driver_age"]
+    numeric_features = NUMERIC_MODEL_FEATURES.copy()
     categorical_features = [
         feature
         for feature in REQUIRED_MODEL_FEATURES
@@ -215,7 +335,7 @@ def train_and_save_model() -> tuple[Pipeline, pd.DataFrame]:
 
     candidate_models = {
         "RandomForestClassifier": RandomForestClassifier(
-            n_estimators=300,
+            n_estimators=200,
             max_depth=10,
             min_samples_leaf=2,
             class_weight="balanced",
@@ -234,15 +354,58 @@ def train_and_save_model() -> tuple[Pipeline, pd.DataFrame]:
             max_depth=3,
             random_state=42,
         ),
+        "StackingClassifier": StackingClassifier(
+            estimators=[
+                (
+                    "lr",
+                    LogisticRegression(
+                        max_iter=1200,
+                        solver="lbfgs",
+                        class_weight="balanced",
+                        random_state=42,
+                    ),
+                ),
+                (
+                    "rf",
+                    RandomForestClassifier(
+                        n_estimators=120,
+                        max_depth=8,
+                        min_samples_leaf=2,
+                        class_weight="balanced",
+                        random_state=42,
+                        n_jobs=-1,
+                    ),
+                ),
+                (
+                    "gb",
+                    GradientBoostingClassifier(
+                        n_estimators=120,
+                        learning_rate=0.08,
+                        max_depth=2,
+                        random_state=42,
+                    ),
+                ),
+            ],
+            final_estimator=LogisticRegression(
+                max_iter=1200,
+                solver="lbfgs",
+                class_weight="balanced",
+                random_state=42,
+            ),
+            stack_method="predict_proba",
+            cv=3,
+            n_jobs=-1,
+            passthrough=False,
+        ),
     }
 
     evaluation_rows: list[dict[str, object]] = []
     trained_pipelines: dict[str, Pipeline] = {}
 
-    cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+    cv = StratifiedKFold(n_splits=3, shuffle=True, random_state=42)
 
     for model_name, estimator in candidate_models.items():
-        pipeline = Pipeline(
+        base_pipeline = Pipeline(
             steps=[
                 (
                     "preprocessor",
@@ -254,9 +417,10 @@ def train_and_save_model() -> tuple[Pipeline, pd.DataFrame]:
                 ("classifier", estimator),
             ]
         )
+        model = base_pipeline
 
         cv_results = cross_validate(
-            pipeline,
+            model,
             X_train,
             y_train,
             cv=cv,
@@ -266,7 +430,7 @@ def train_and_save_model() -> tuple[Pipeline, pd.DataFrame]:
                 "roc_auc": "roc_auc",
                 "accuracy": "accuracy",
             },
-            n_jobs=-1,
+            n_jobs=1,
             return_train_score=False,
         )
 
@@ -278,18 +442,25 @@ def train_and_save_model() -> tuple[Pipeline, pd.DataFrame]:
             stratify=y_train if y_train.nunique() > 1 else None,
         )
 
-        pipeline.fit(X_tune, y_tune)
-        if hasattr(pipeline, "predict_proba"):
-            val_scores = pipeline.predict_proba(X_val)[:, 1]
+        _fit_model(model_name, model, X_tune, y_tune)
+        if hasattr(model, "predict_proba"):
+            val_scores = model.predict_proba(X_val)[:, 1]
             threshold = _find_best_threshold(y_val, val_scores)
         else:
             threshold = 0.5
 
-        pipeline.fit(X_train, y_train)
-        pipeline.best_threshold_ = threshold
+        _fit_model(model_name, model, X_train, y_train)
+        model.best_threshold_ = threshold
 
-        train_metrics = _evaluate_model(pipeline, X_train, y_train, threshold=threshold)
-        test_metrics = _evaluate_model(pipeline, X_test, y_test, threshold=threshold)
+        train_metrics = _evaluate_model(model, X_train, y_train, threshold=threshold)
+        test_metrics = _evaluate_model(model, X_test, y_test, threshold=threshold)
+
+        selection_score = (
+            0.70 * float(test_metrics["balanced_accuracy"])
+            + 0.15 * float(test_metrics["specificity"])
+            + 0.10 * float(test_metrics["recall"])
+            + 0.10 * float(test_metrics["mcc"] + 1.0) / 2.0
+        )
 
         metrics = {
             "model": model_name,
@@ -301,6 +472,7 @@ def train_and_save_model() -> tuple[Pipeline, pd.DataFrame]:
             "mcc": test_metrics["mcc"],
             "specificity": test_metrics["specificity"],
             "roc_auc": test_metrics["roc_auc"],
+            "brier_score": test_metrics["brier_score"],
             "confusion_matrix": test_metrics["confusion_matrix"],
             "train_accuracy": train_metrics["accuracy"],
             "test_accuracy": test_metrics["accuracy"],
@@ -308,6 +480,7 @@ def train_and_save_model() -> tuple[Pipeline, pd.DataFrame]:
             "test_f1": test_metrics["f1"],
             "train_balanced_accuracy": train_metrics["balanced_accuracy"],
             "test_balanced_accuracy": test_metrics["balanced_accuracy"],
+            "selection_score": selection_score,
             "accuracy_gap": float(train_metrics["accuracy"] - test_metrics["accuracy"]),
             "f1_gap": float(train_metrics["f1"] - test_metrics["f1"]),
             "cv_accuracy_mean": float(np.mean(cv_results["test_accuracy"])),
@@ -329,12 +502,16 @@ def train_and_save_model() -> tuple[Pipeline, pd.DataFrame]:
                 test_metrics["specificity"] == 0.0 or test_metrics["recall"] == 0.0
             ),
         }
+        if metrics["degenerate_prediction_flag"]:
+            metrics["selection_score"] = float(metrics["selection_score"] - 1.0)
         evaluation_rows.append(metrics)
-        trained_pipelines[model_name] = pipeline
+        trained_pipelines[model_name] = model
 
     summary = pd.DataFrame(evaluation_rows)
     summary = summary.sort_values(
         by=[
+            "degenerate_prediction_flag",
+            "selection_score",
             "balanced_accuracy",
             "mcc",
             "f1",
@@ -342,7 +519,7 @@ def train_and_save_model() -> tuple[Pipeline, pd.DataFrame]:
             "accuracy",
             "cv_balanced_accuracy_mean",
         ],
-        ascending=False,
+        ascending=[True, False, False, False, False, False, False, False],
     ).reset_index(drop=True)
 
     best_model_name = str(summary.loc[0, "model"])
@@ -357,26 +534,39 @@ def train_and_save_model() -> tuple[Pipeline, pd.DataFrame]:
         y_holdout,
         threshold=holdout_threshold,
     )
-    for metric_name, metric_value in holdout_metrics.items():
-        summary.loc[summary["model"] == best_model_name, f"holdout_{metric_name}"] = (
-            metric_value
-        )
+    best_idx = int(summary.index[summary["model"] == best_model_name][0])
+    for metric_name in holdout_metrics:
+        column_name = f"holdout_{metric_name}"
+        if column_name not in summary.columns:
+            summary[column_name] = pd.Series([None] * len(summary), dtype="object")
 
-    summary.loc[summary["model"] == best_model_name, "holdout_threshold"] = (
-        holdout_threshold
-    )
+    for metric_name, metric_value in holdout_metrics.items():
+        column_name = f"holdout_{metric_name}"
+        if metric_name == "confusion_matrix":
+            summary.at[best_idx, column_name] = json.dumps(metric_value)
+        else:
+            summary.at[best_idx, column_name] = metric_value
+
+    if "holdout_threshold" not in summary.columns:
+        summary["holdout_threshold"] = pd.Series([None] * len(summary), dtype="object")
+    summary.at[best_idx, "holdout_threshold"] = holdout_threshold
 
     ensure_directory(MODELS_DIR)
     joblib.dump(best_pipeline, MODELS_DIR / "model.pkl")
 
     # Backward compatibility for existing scripts and deployment code.
     joblib.dump(best_pipeline, MODELS_DIR / "accident_model.pkl")
-    joblib.dump(
-        best_pipeline.named_steps["preprocessor"], MODELS_DIR / "preprocessor.pkl"
-    )
+    extracted_preprocessor = _extract_preprocessor_from_model(best_pipeline)
+    if extracted_preprocessor is not None:
+        joblib.dump(extracted_preprocessor, MODELS_DIR / "preprocessor.pkl")
 
     feature_importance_frame = _extract_feature_importance(best_pipeline)
     feature_importance_frame.to_csv(MODELS_DIR / "feature_importance.csv", index=False)
+    best_pipeline.top_features_ = (
+        feature_importance_frame["feature"].head(3).tolist()
+        if not feature_importance_frame.empty
+        else []
+    )
     summary.to_csv(MODELS_DIR / "model_comparison.csv", index=False)
 
     report = {

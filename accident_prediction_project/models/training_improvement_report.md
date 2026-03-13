@@ -1,12 +1,12 @@
 # Training Improvement Report
 
-- Previous best model: None
+- Previous best model: LogisticRegression
 - New best model: LogisticRegression
 
 ## Metric Delta (new - previous)
-- accuracy: n/a
-- balanced_accuracy: n/a
-- f1: n/a
-- mcc: n/a
-- specificity: n/a
-- roc_auc: n/a
+- accuracy: +0.000000
+- balanced_accuracy: +0.000000
+- f1: +0.000000
+- mcc: +0.000000
+- specificity: +0.000000
+- roc_auc: +0.000000

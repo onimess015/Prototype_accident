@@ -13,10 +13,13 @@ from .utils import standardize_columns
 
 REQUIRED_MODEL_FEATURES = [
     "vehicle_speed",
+    "speed_band",
     "weather_condition",
+    "weather_severity",
     "road_type",
     "traffic_density",
     "time_of_day",
+    "contextual_risk",
     "driver_fatigue",
     "road_lighting",
     "visibility_level",
@@ -29,6 +32,8 @@ REQUIRED_MODEL_FEATURES = [
     "day_of_week",
     "month",
 ]
+
+NUMERIC_MODEL_FEATURES = ["vehicle_speed", "driver_age"]
 
 
 def _extract_hour(value: Any) -> int | None:
@@ -104,6 +109,47 @@ def _derive_visibility(weather: str, lighting: str) -> str:
         return "Medium"
 
     return "High"
+
+
+def _derive_speed_band(speed: float) -> str:
+    if speed < 40:
+        return "low"
+    if speed < 70:
+        return "moderate"
+    if speed < 100:
+        return "high"
+    return "very_high"
+
+
+def _derive_weather_severity(weather: str) -> str:
+    text = str(weather).strip().lower()
+    if text in {"clear", "sunny"}:
+        return "benign"
+    if text in {"hazy", "cloudy"}:
+        return "mild"
+    if text in {"rain", "rainy", "fog", "foggy", "snow"}:
+        return "adverse"
+    if text in {"storm", "stormy", "thunderstorm"}:
+        return "severe"
+    return "unknown"
+
+
+def _derive_contextual_risk(
+    time_of_day: str,
+    traffic_density: str,
+    road_lighting: str,
+) -> str:
+    time_text = str(time_of_day).strip().lower()
+    traffic_text = str(traffic_density).strip().lower()
+    light_text = str(road_lighting).strip().lower()
+
+    if time_text == "night" and (
+        traffic_text == "high" or light_text in {"dark", "poor", "dusk", "dawn"}
+    ):
+        return "elevated"
+    if traffic_text == "high":
+        return "moderate"
+    return "baseline"
 
 
 def _build_target(series: pd.Series) -> pd.Series:
@@ -210,6 +256,32 @@ def _run_data_quality_filters(
         filtered["alcohol_involvement"] = _canonicalize_binary_text(
             filtered["alcohol_involvement"]
         )
+
+    report["rows_after"] = int(len(filtered))
+    report["dropped_rows"] = int(report["rows_before"] - report["rows_after"])
+
+    severity_norm = (
+        filtered[source_target]
+        .astype("string")
+        .str.strip()
+        .str.lower()
+        .fillna("unknown")
+    )
+    fatal_count = pd.to_numeric(filtered[source_fatalities], errors="coerce").fillna(0)
+
+    contradiction_mask = severity_norm.isin(["minor", "slight", "low"]) & (
+        fatal_count >= 3
+    )
+    if contradiction_mask.any():
+        dropped = int(contradiction_mask.sum())
+        filtered = filtered.loc[~contradiction_mask].copy()
+        report["drop_reasons"]["severity_fatality_contradiction"] = dropped
+
+    unknown_target_mask = severity_norm.eq("unknown") & fatal_count.eq(0)
+    if unknown_target_mask.any():
+        dropped = int(unknown_target_mask.sum())
+        filtered = filtered.loc[~unknown_target_mask].copy()
+        report["drop_reasons"]["unknown_target_no_signal"] = dropped
 
     report["rows_after"] = int(len(filtered))
     report["dropped_rows"] = int(report["rows_before"] - report["rows_after"])
@@ -331,6 +403,20 @@ def load_and_prepare_data(
             engineered["weather_condition"], engineered["road_lighting"]
         )
     ]
+    engineered["speed_band"] = (
+        engineered["vehicle_speed"].fillna(0).map(_derive_speed_band)
+    )
+    engineered["weather_severity"] = engineered["weather_condition"].map(
+        _derive_weather_severity
+    )
+    engineered["contextual_risk"] = [
+        _derive_contextual_risk(time_value, traffic_value, lighting_value)
+        for time_value, traffic_value, lighting_value in zip(
+            engineered["time_of_day"],
+            engineered["traffic_density"],
+            engineered["road_lighting"],
+        )
+    ]
 
     # Basic numeric cleanup and clipping to realistic values.
     engineered["vehicle_speed"] = engineered["vehicle_speed"].fillna(
@@ -345,7 +431,7 @@ def load_and_prepare_data(
     categorical_features = [
         feature
         for feature in REQUIRED_MODEL_FEATURES
-        if feature not in {"vehicle_speed", "driver_age"}
+        if feature not in set(NUMERIC_MODEL_FEATURES)
     ]
     for feature in categorical_features:
         categorical_series = engineered[feature].astype(object)
