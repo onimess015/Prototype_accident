@@ -2,55 +2,118 @@
   "best_model": "LogisticRegression",
   "metrics": [
     {
-      "accuracy": 0.655,
-      "precision": 0.655,
-      "recall": 1.0,
-      "f1": 0.7915407854984894,
+      "model": "LogisticRegression",
+      "accuracy": 0.7566666666666667,
+      "balanced_accuracy": 0.5262896825396826,
+      "precision": 0.8482490272373541,
+      "recall": 0.8650793650793651,
+      "f1": 0.8565815324165029,
+      "mcc": 0.05500921368887555,
+      "specificity": 0.1875,
+      "roc_auc": 0.562334656084656,
       "confusion_matrix": [
         [
-          0,
-          207
+          18,
+          78
         ],
         [
-          0,
-          393
+          68,
+          436
         ]
       ],
-      "model": "LogisticRegression"
+      "train_accuracy": 0.7841666666666667,
+      "test_accuracy": 0.7566666666666667,
+      "train_f1": 0.873225648556045,
+      "test_f1": 0.8565815324165029,
+      "train_balanced_accuracy": 0.5700644841269841,
+      "test_balanced_accuracy": 0.5262896825396826,
+      "accuracy_gap": 0.02749999999999997,
+      "f1_gap": 0.016644116139542087,
+      "cv_accuracy_mean": 0.5433333333333333,
+      "cv_accuracy_std": 0.011740835669671153,
+      "cv_balanced_accuracy_mean": 0.4858507967347417,
+      "cv_balanced_accuracy_std": 0.028672585058989338,
+      "cv_f1_mean": 0.6772809499275123,
+      "cv_roc_auc_mean": 0.4778133801598224,
+      "decision_threshold": 0.3799999999999999,
+      "overfitting_flag": false,
+      "degenerate_prediction_flag": false
     },
     {
-      "accuracy": 0.6516666666666666,
-      "precision": 0.6597222222222222,
-      "recall": 0.9669211195928753,
-      "f1": 0.7843137254901961,
+      "model": "RandomForestClassifier",
+      "accuracy": 0.4216666666666667,
+      "balanced_accuracy": 0.5124007936507937,
+      "precision": 0.8488888888888889,
+      "recall": 0.37896825396825395,
+      "f1": 0.52400548696845,
+      "mcc": 0.018781205660633703,
+      "specificity": 0.6458333333333334,
+      "roc_auc": 0.5348048941798942,
       "confusion_matrix": [
         [
-          11,
-          196
+          62,
+          34
         ],
         [
-          13,
-          380
+          313,
+          191
         ]
       ],
-      "model": "GradientBoostingClassifier"
+      "train_accuracy": 0.6354166666666666,
+      "test_accuracy": 0.4216666666666667,
+      "train_f1": 0.7228381374722838,
+      "test_f1": 0.52400548696845,
+      "train_balanced_accuracy": 0.7829861111111112,
+      "test_balanced_accuracy": 0.5124007936507937,
+      "accuracy_gap": 0.21374999999999994,
+      "f1_gap": 0.1988326505038338,
+      "cv_accuracy_mean": 0.81375,
+      "cv_accuracy_std": 0.008498365855987984,
+      "cv_balanced_accuracy_mean": 0.49069937777934214,
+      "cv_balanced_accuracy_std": 0.008290227434359622,
+      "cv_f1_mean": 0.8970097484454783,
+      "cv_roc_auc_mean": 0.49561813104947144,
+      "decision_threshold": 0.5999999999999999,
+      "overfitting_flag": true,
+      "degenerate_prediction_flag": false
     },
     {
-      "accuracy": 0.6483333333333333,
-      "precision": 0.6642599277978339,
-      "recall": 0.9363867684478372,
-      "f1": 0.7771911298838438,
+      "model": "GradientBoostingClassifier",
+      "accuracy": 0.7166666666666667,
+      "balanced_accuracy": 0.5109126984126984,
+      "precision": 0.8436213991769548,
+      "recall": 0.8134920634920635,
+      "f1": 0.8282828282828283,
+      "mcc": 0.02039588117607166,
+      "specificity": 0.20833333333333334,
+      "roc_auc": 0.5611359126984128,
       "confusion_matrix": [
         [
-          21,
-          186
+          20,
+          76
         ],
         [
-          25,
-          368
+          94,
+          410
         ]
       ],
-      "model": "RandomForestClassifier"
+      "train_accuracy": 0.8604166666666667,
+      "test_accuracy": 0.7166666666666667,
+      "train_f1": 0.9165213057562921,
+      "test_f1": 0.8282828282828283,
+      "train_balanced_accuracy": 0.7503720238095237,
+      "test_balanced_accuracy": 0.5109126984126984,
+      "accuracy_gap": 0.14375000000000004,
+      "f1_gap": 0.0882384774734638,
+      "cv_accuracy_mean": 0.83625,
+      "cv_accuracy_std": 0.003118047822311607,
+      "cv_balanced_accuracy_mean": 0.5051579331425184,
+      "cv_balanced_accuracy_std": 0.0026537865017164704,
+      "cv_f1_mean": 0.9105357367042999,
+      "cv_roc_auc_mean": 0.49287042321090635,
+      "decision_threshold": 0.7999999999999996,
+      "overfitting_flag": true,
+      "degenerate_prediction_flag": false
     }
   ]
 }

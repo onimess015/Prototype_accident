@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 """Comprehensive tests for SafeRoute AI project."""
 
+import importlib.util
+import json
 import sys
 from pathlib import Path
 
@@ -94,8 +96,13 @@ except Exception as e:
 print("\n[TEST 6/6] Testing Streamlit UI component...")
 try:
     # Just check if imports work - can't run full Streamlit test in script
-    sys.path.insert(0, str(Path(__file__).parent / "app"))
-    from prediction_ui import RiskPredictionUI
+    ui_file = project_root / "app" / "prediction_ui.py"
+    module_spec = importlib.util.spec_from_file_location("prediction_ui", ui_file)
+    if module_spec is None or module_spec.loader is None:
+        raise ImportError(f"Unable to load UI module from {ui_file}")
+    ui_module = importlib.util.module_from_spec(module_spec)
+    module_spec.loader.exec_module(ui_module)
+    RiskPredictionUI = ui_module.RiskPredictionUI
 
     # Test UI methods exist
     assert hasattr(RiskPredictionUI, "get_risk_category")
@@ -121,10 +128,25 @@ print("\n" + "=" * 70)
 print("ALL TESTS PASSED - PROJECT READY FOR DEPLOYMENT")
 print("=" * 70)
 print("\nProject Statistics:")
-print(f"  Model: RandomForestClassifier")
+metrics_file = project_root / "models" / "model_metrics.json"
+if metrics_file.exists():
+    metrics_report = json.loads(metrics_file.read_text(encoding="utf-8"))
+    best_model_name = metrics_report.get("best_model", "unknown")
+    metrics_rows = metrics_report.get("metrics", [])
+    best_row = metrics_rows[0] if metrics_rows else {}
+else:
+    best_model_name = "unknown"
+    best_row = {}
+
+print(f"  Model: {best_model_name}")
 print(f"  Dataset size: {raw_df.shape[0]} samples")
 print(f"  Features: {X.shape[1]} engineered features")
-print(f"  Test accuracy: 64.33%")
+if best_row:
+    print(f"  Test accuracy: {float(best_row.get('accuracy', 0.0)) * 100:.2f}%")
+    if "balanced_accuracy" in best_row:
+        print(
+            f"  Test balanced accuracy: {float(best_row.get('balanced_accuracy', 0.0)) * 100:.2f}%"
+        )
 print(f"  Dashboard: Streamlit with professional UI")
 print("\nTo launch the dashboard:")
 print("  streamlit run app/streamlit_app.py")

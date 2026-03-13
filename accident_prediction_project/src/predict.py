@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from pathlib import Path
 from typing import Any
+import hashlib
 
 import joblib
 import numpy as np
@@ -37,6 +38,15 @@ def load_artifacts(
 def _validate_payload(input_dict: dict[str, Any]) -> dict[str, Any]:
     validated = dict(input_dict)
 
+    alias_map = {
+        "weather_conditions": "weather_condition",
+        "lighting_conditions": "road_lighting",
+        "traffic_control": "traffic_control_presence",
+    }
+    for alias_name, canonical_name in alias_map.items():
+        if canonical_name not in validated and alias_name in validated:
+            validated[canonical_name] = validated[alias_name]
+
     speed_value = pd.to_numeric(validated.get("vehicle_speed"), errors="coerce")
     if pd.isna(speed_value):
         raise ValueError("Vehicle speed is required and must be numeric.")
@@ -52,6 +62,13 @@ def _validate_payload(input_dict: dict[str, Any]) -> dict[str, Any]:
     for feature_name in REQUIRED_MODEL_FEATURES:
         if feature_name not in validated:
             validated[feature_name] = "Unknown"
+
+    for boolean_like_feature in ["alcohol_involvement"]:
+        raw_value = str(validated.get(boolean_like_feature, "Unknown")).strip().lower()
+        if raw_value in {"1", "true", "yes", "y"}:
+            validated[boolean_like_feature] = "Yes"
+        elif raw_value in {"0", "false", "no", "n"}:
+            validated[boolean_like_feature] = "No"
 
     return validated
 
@@ -72,6 +89,90 @@ def _score_to_label(risk_score: float) -> str:
     if risk_score < 0.70:
         return "Medium Risk"
     return "High Risk"
+
+
+def _scenario_signature(input_dict: dict[str, Any]) -> str:
+    keys = sorted(REQUIRED_MODEL_FEATURES)
+    signature_base = "|".join(f"{key}={input_dict.get(key, 'unknown')}" for key in keys)
+    return hashlib.sha1(signature_base.encode("utf-8")).hexdigest()[:10]
+
+
+def _build_risk_narrative(
+    input_dict: dict[str, Any],
+    risk_score: float,
+    risk_label: str,
+) -> dict[str, str]:
+    speed = float(
+        pd.to_numeric(input_dict.get("vehicle_speed"), errors="coerce") or 0.0
+    )
+    weather = str(input_dict.get("weather_condition", "Unknown")).strip()
+    road_type = str(input_dict.get("road_type", "Unknown")).strip()
+    traffic = str(input_dict.get("traffic_density", "Unknown")).strip()
+    time_of_day = str(input_dict.get("time_of_day", "Unknown")).strip()
+    fatigue = str(input_dict.get("driver_fatigue", "Unknown")).strip()
+    lighting = str(input_dict.get("road_lighting", "Unknown")).strip()
+    road_condition = str(input_dict.get("road_condition", "Unknown")).strip()
+
+    causes: list[str] = []
+    how_steps: list[str] = []
+
+    if speed >= 90:
+        causes.append("high speed")
+        how_steps.append(
+            "Higher speed shortens reaction time and increases stopping distance"
+        )
+    elif speed >= 70:
+        causes.append("moderate-high speed")
+        how_steps.append("Speed leaves less margin for sudden hazards")
+
+    if weather.lower() in {"fog", "foggy", "rain", "rainy", "snow", "stormy", "storm"}:
+        causes.append(f"adverse weather ({weather})")
+        how_steps.append(
+            "Weather reduces traction or visibility, making control harder"
+        )
+
+    if lighting.lower() in {"dark", "dusk", "dawn", "poor"}:
+        causes.append(f"low-light driving ({lighting})")
+        how_steps.append("Low light delays hazard detection and depth judgment")
+
+    if traffic.lower() in {"high", "dense", "heavy"}:
+        causes.append("dense traffic")
+        how_steps.append(
+            "Dense traffic increases conflict points and sudden braking events"
+        )
+
+    if fatigue.lower() in {"high", "medium"}:
+        causes.append(f"driver fatigue ({fatigue})")
+        how_steps.append("Fatigue reduces attention consistency and reaction quality")
+
+    if road_condition.lower() in {"wet", "damaged", "under construction"}:
+        causes.append(f"road condition ({road_condition})")
+        how_steps.append("Road surface condition can reduce grip and stability")
+
+    if not causes:
+        causes.append("baseline environmental uncertainty")
+        how_steps.append(
+            "Combined road context still carries non-zero incident probability"
+        )
+
+    reason = (
+        f"Predicted {risk_label.lower()} because this scenario combines "
+        f"{', '.join(causes[:3])}."
+    )
+    cause = f"Primary likely cause: {causes[0]}."
+    why = (
+        f"Why: the model score is {risk_score:.2f}, driven by current road context "
+        f"(road={road_type}, time={time_of_day}, traffic={traffic})."
+    )
+    how = f"How accident can happen: {'; '.join(how_steps[:3])}."
+
+    return {
+        "scenario_signature": _scenario_signature(input_dict),
+        "accident_reason": reason,
+        "accident_cause": cause,
+        "accident_why": why,
+        "accident_how": how,
+    }
 
 
 def _normalize_importance_name(raw_name: str) -> str:
@@ -137,11 +238,18 @@ def predict_risk(input_dict: dict[str, Any]) -> dict[str, float | str | list[str
     else:
         risk_score = float(model.predict(input_frame)[0])
 
+    decision_threshold = float(getattr(model, "best_threshold_", 0.5))
+    predicted_class = int(risk_score >= decision_threshold)
+
     risk_label = _score_to_label(risk_score)
     top_factors = _top_risk_factors(model, input_frame)
+    narrative = _build_risk_narrative(validated_input, risk_score, risk_label)
     return {
         "risk_score": round(risk_score, 4),
         "risk_percentage": round(risk_score * 100, 2),
         "risk_label": risk_label,
+        "predicted_class": predicted_class,
+        "decision_threshold": round(decision_threshold, 3),
         "top_factors": top_factors,
+        **narrative,
     }

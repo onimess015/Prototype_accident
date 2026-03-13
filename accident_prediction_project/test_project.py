@@ -12,14 +12,16 @@ print("=" * 60)
 try:
     from src.train_model import train_and_save_model
 
-    model, preprocessor = train_and_save_model()
+    model, summary = train_and_save_model()
     print("✓ Training pipeline executed successfully")
     print(f"✓ Best model selected: {getattr(model, 'model_name_', 'unknown')}")
+    print(f"✓ Best balanced accuracy: {float(summary.loc[0, 'balanced_accuracy']):.4f}")
 
     # Verify artifacts exist
     models_dir = Path("models")
     assert (models_dir / "accident_model.pkl").exists(), "Model artifact not saved"
     assert (models_dir / "preprocessor.pkl").exists(), "Preprocessor artifact not saved"
+    assert (models_dir / "model_metrics.json").exists(), "Metrics report not saved"
     print("✓ Model artifacts saved and verified")
 except Exception as e:
     print(f"✗ Training test failed: {e}")

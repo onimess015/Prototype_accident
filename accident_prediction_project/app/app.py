@@ -28,7 +28,83 @@ TRAFFIC_OPTIONS = ["Low", "Medium", "High"]
 TIME_OPTIONS = ["Day", "Night"]
 FATIGUE_OPTIONS = ["Low", "Medium", "High"]
 LIGHTING_OPTIONS = ["Good", "Moderate", "Poor"]
-VISIBILITY_OPTIONS = ["High", "Medium", "Low"]
+
+
+def derive_visibility_level(weather: str, road_lighting: str) -> str:
+    weather_text = str(weather).strip().lower()
+    lighting_text = str(road_lighting).strip().lower()
+
+    if weather_text in {"rain", "fog", "snow"}:
+        return "Low" if lighting_text in {"poor", "dark", "dusk", "dawn"} else "Medium"
+    if lighting_text in {"poor", "dark", "dusk", "dawn"}:
+        return "Medium"
+    return "High"
+
+
+def render_explanation_cards(result: dict[str, object]) -> None:
+    st.markdown(
+        """
+                <style>
+                .scenario-grid {
+                        display: grid;
+                        grid-template-columns: repeat(2, minmax(0, 1fr));
+                        gap: 0.8rem;
+                        margin-top: 0.6rem;
+                }
+                .scenario-card {
+                        border: 1px solid #e5e7eb;
+                        border-radius: 0.8rem;
+                        padding: 0.9rem;
+                        background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+                }
+                .scenario-card h4 {
+                        margin: 0 0 0.35rem 0;
+                        font-size: 0.95rem;
+                        color: #1f2937;
+                }
+                .scenario-card p {
+                        margin: 0;
+                        color: #374151;
+                        font-size: 0.92rem;
+                        line-height: 1.35;
+                }
+                @media (max-width: 880px) {
+                        .scenario-grid {
+                                grid-template-columns: 1fr;
+                        }
+                }
+                </style>
+                """,
+        unsafe_allow_html=True,
+    )
+
+    reason = str(result.get("accident_reason", "Reason unavailable"))
+    cause = str(result.get("accident_cause", "Cause unavailable"))
+    why = str(result.get("accident_why", "Why unavailable"))
+    how = str(result.get("accident_how", "How unavailable"))
+
+    cards_html = f"""
+        <div class="scenario-grid">
+            <div class="scenario-card">
+                <h4>Reason</h4>
+                <p>{reason}</p>
+            </div>
+            <div class="scenario-card">
+                <h4>Cause</h4>
+                <p>{cause}</p>
+            </div>
+            <div class="scenario-card">
+                <h4>Why</h4>
+                <p>{why}</p>
+            </div>
+            <div class="scenario-card">
+                <h4>How</h4>
+                <p>{how}</p>
+            </div>
+        </div>
+        """
+
+    st.markdown(cards_html, unsafe_allow_html=True)
 
 
 @st.cache_data(show_spinner=False)
@@ -119,7 +195,6 @@ def validate_batch_frame(df: pd.DataFrame) -> tuple[pd.DataFrame, list[str]]:
         "time_of_day",
         "driver_fatigue",
         "road_lighting",
-        "visibility_level",
     ]
     normalized = df.copy()
     normalized.columns = [
@@ -135,6 +210,15 @@ def validate_batch_frame(df: pd.DataFrame) -> tuple[pd.DataFrame, list[str]]:
     )
     normalized = normalized.dropna(subset=["vehicle_speed"]).copy()
     normalized["vehicle_speed"] = normalized["vehicle_speed"].clip(0, 150)
+
+    if "visibility_level" not in normalized.columns:
+        normalized["visibility_level"] = [
+            derive_visibility_level(weather, lighting)
+            for weather, lighting in zip(
+                normalized["weather_condition"], normalized["road_lighting"]
+            )
+        ]
+
     return normalized, []
 
 
@@ -167,7 +251,6 @@ def show_prediction_section() -> None:
         driver_fatigue = st.selectbox("Driver Fatigue", FATIGUE_OPTIONS)
     with col_d:
         road_lighting = st.selectbox("Road Lighting", LIGHTING_OPTIONS)
-        visibility_level = st.selectbox("Visibility Level", VISIBILITY_OPTIONS)
 
     if speed < 0 or speed > 150:
         st.error("Speed must be between 0 and 150 km/h.")
@@ -181,7 +264,7 @@ def show_prediction_section() -> None:
         "time_of_day": time_of_day,
         "driver_fatigue": driver_fatigue,
         "road_lighting": road_lighting,
-        "visibility_level": visibility_level,
+        "visibility_level": derive_visibility_level(weather, road_lighting),
     }
 
     if st.button("Predict Risk", type="primary"):
@@ -199,9 +282,9 @@ def show_prediction_section() -> None:
 
             left, right = st.columns(2)
             with left:
-                st.plotly_chart(risk_gauge(probability), use_container_width=True)
+                st.plotly_chart(risk_gauge(probability), width="stretch")
             with right:
-                st.plotly_chart(probability_bar(probability), use_container_width=True)
+                st.plotly_chart(probability_bar(probability), width="stretch")
 
             factors = result.get("top_factors", [])
             if factors:
@@ -209,12 +292,20 @@ def show_prediction_section() -> None:
                 for idx, factor in enumerate(factors, start=1):
                     st.write(f"{idx}. {factor}")
 
+            st.markdown("### Scenario Explanation")
+            st.caption(f"Scenario ID: {result.get('scenario_signature', 'n/a')}")
+            render_explanation_cards(result)
+
             history = st.session_state.get("prediction_history", [])
+            user_facing_payload = {
+                k: v for k, v in payload.items() if k != "visibility_level"
+            }
             history.append(
                 {
-                    **payload,
+                    **user_facing_payload,
                     "risk_probability": result["risk_score"],
                     "risk_level": result["risk_label"],
+                    "scenario_signature": result.get("scenario_signature", "n/a"),
                 }
             )
             st.session_state["prediction_history"] = history[-100:]
@@ -229,7 +320,7 @@ def show_model_explanation_section() -> None:
     comparison = load_model_summary()
     if not comparison.empty:
         st.markdown("Model Benchmark")
-        st.dataframe(comparison, use_container_width=True)
+        st.dataframe(comparison, width="stretch")
 
     importance = load_feature_importance()
     if not importance.empty:
@@ -243,7 +334,7 @@ def show_model_explanation_section() -> None:
             color_continuous_scale="Blues",
         )
         fig.update_layout(yaxis={"categoryorder": "total ascending"})
-        st.plotly_chart(fig, use_container_width=True)
+        st.plotly_chart(fig, width="stretch")
     else:
         st.info("Feature importance will appear after training the model.")
 
@@ -252,7 +343,7 @@ def show_dataset_section() -> None:
     st.subheader("About the Dataset")
     df = load_dataset()
     st.write(f"Rows: {len(df):,} | Columns: {len(df.columns)}")
-    st.dataframe(df.head(20), use_container_width=True)
+    st.dataframe(df.head(20), width="stretch")
 
     if {"state_name", "city_name"}.issubset({c.lower() for c in df.columns}):
         normalized = df.copy()
@@ -264,7 +355,7 @@ def show_dataset_section() -> None:
             .head(20)
         )
         st.markdown("Accident Hotspots (Top State-City Pairs)")
-        st.dataframe(hotspot, use_container_width=True)
+        st.dataframe(hotspot, width="stretch")
 
 
 def show_advanced_section() -> None:
@@ -301,7 +392,9 @@ def show_advanced_section() -> None:
                 )
 
             result_df = pd.DataFrame(predictions)
-            st.dataframe(result_df.head(50), use_container_width=True)
+            if "visibility_level" in result_df.columns:
+                result_df = result_df.drop(columns=["visibility_level"])
+            st.dataframe(result_df.head(50), width="stretch")
 
             csv_bytes = result_df.to_csv(index=False).encode("utf-8")
             st.download_button(
@@ -315,7 +408,7 @@ def show_advanced_section() -> None:
     if history:
         history_df = pd.DataFrame(history)
         st.markdown("Prediction History")
-        st.dataframe(history_df.tail(20), use_container_width=True)
+        st.dataframe(history_df.tail(20), width="stretch")
 
         history_csv = history_df.to_csv(index=False).encode("utf-8")
         st.download_button(

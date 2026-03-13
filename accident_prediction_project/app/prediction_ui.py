@@ -141,7 +141,6 @@ class RiskPredictionUI:
     def get_risk_explanation(
         probability: float,
         driver_age: Optional[int] = None,
-        alcohol_involved: Optional[bool] = None,
         vehicle_speed: Optional[int] = None,
         weather: Optional[str] = None,
         time_of_day: Optional[str] = None,
@@ -152,7 +151,6 @@ class RiskPredictionUI:
         Args:
             probability: Risk probability
             driver_age: Age of driver
-            alcohol_involved: Whether alcohol is involved
             vehicle_speed: Vehicle speed
             weather: Weather condition
             time_of_day: Time of day
@@ -175,11 +173,6 @@ class RiskPredictionUI:
                 recommendations.append(
                     "Increase following distance and avoid night driving"
                 )
-
-        # Analyze alcohol
-        if alcohol_involved:
-            risk_factors.append("Alcohol involvement detected - Critical risk factor")
-            recommendations.append("Do not drive - Use alternative transportation")
 
         # Analyze speed
         if vehicle_speed and vehicle_speed > 80:
@@ -250,9 +243,6 @@ class RiskPredictionUI:
 
         # Extract user inputs safely
         driver_age = user_inputs.get("driver_age") if user_inputs else None
-        alcohol_involved = (
-            user_inputs.get("alcohol_involvement") if user_inputs else False
-        )
         vehicle_speed = user_inputs.get("vehicle_speed") if user_inputs else None
         weather = user_inputs.get("weather_conditions") if user_inputs else None
         time_of_day = user_inputs.get("time_of_day") if user_inputs else None
@@ -261,7 +251,6 @@ class RiskPredictionUI:
         risk_factors, recommendations = RiskPredictionUI.get_risk_explanation(
             probability,
             driver_age=driver_age,
-            alcohol_involved=alcohol_involved,
             vehicle_speed=vehicle_speed,
             weather=weather,
             time_of_day=time_of_day,
@@ -304,7 +293,7 @@ class RiskPredictionUI:
                 st.markdown("**Risk Gauge Visualization:**")
                 gauge_chart = RiskPredictionUI.create_risk_gauge_chart(probability)
                 st.plotly_chart(
-                    gauge_chart, use_container_width=True, config={"responsive": True}
+                    gauge_chart, width="stretch", config={"responsive": True}
                 )
 
         # ==================================================================
@@ -356,17 +345,6 @@ class RiskPredictionUI:
                 metrics_data["Value"].append(user_inputs["driver_gender"])
                 metrics_data["Risk Impact"].append("⬇️ Neutral")
 
-            if "alcohol_involvement" in user_inputs:
-                metrics_data["Parameter"].append("Alcohol Involvement")
-                metrics_data["Value"].append(
-                    "Yes" if user_inputs["alcohol_involvement"] else "No"
-                )
-                metrics_data["Risk Impact"].append(
-                    "⬆️ Critical"
-                    if user_inputs["alcohol_involvement"]
-                    else "⬇️ No Impact"
-                )
-
             # Vehicle information
             if "vehicle_speed" in user_inputs:
                 metrics_data["Parameter"].append("Vehicle Speed")
@@ -409,7 +387,7 @@ class RiskPredictionUI:
             # Display metrics table
             if metrics_data["Parameter"]:
                 df_metrics = pd.DataFrame(metrics_data)
-                st.dataframe(df_metrics, use_container_width=True, hide_index=True)
+                st.dataframe(df_metrics, width="stretch", hide_index=True)
 
         # ==================================================================
         # FINAL SUMMARY

@@ -1,0 +1,15 @@
+{
+  "rows_before": 3000,
+  "dropped_rows": 0,
+  "drop_reasons": {},
+  "rows_after": 3000,
+  "target_distribution_after": {
+    "0": 480,
+    "1": 2520
+  },
+  "split_sizes": {
+    "train": 2160,
+    "test": 540,
+    "holdout": 300
+  }
+}
