@@ -176,7 +176,7 @@ python -m src.train_model
 4. Run Streamlit app
 
 ```bash
-streamlit run app/streamlit_app.py
+python start_streamlit.py
 ```
 
 5. Run verification script

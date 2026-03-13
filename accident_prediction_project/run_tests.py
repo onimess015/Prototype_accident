@@ -158,5 +158,5 @@ if best_row:
     ), "Degenerate prediction behavior detected"
 print(f"  Dashboard: Streamlit with professional UI")
 print("\nTo launch the dashboard:")
-print("  streamlit run app/streamlit_app.py")
+print("  python start_streamlit.py")
 print("\n" + "=" * 70)
