@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 import socket
+import subprocess
 import sys
 from pathlib import Path
 
@@ -25,8 +26,7 @@ def main() -> None:
     print(f"Starting Streamlit on port {port}...", flush=True)
     print(f"Local URL: http://localhost:{port}", flush=True)
 
-    os.execv(
-        sys.executable,
+    subprocess.run(
         [
             sys.executable,
             "-m",
@@ -38,6 +38,7 @@ def main() -> None:
             "--server.port",
             str(port),
         ],
+        check=True,
     )
 
 
