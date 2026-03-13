@@ -268,8 +268,26 @@ def show_prediction_section() -> None:
     }
 
     if st.button("Predict Risk", type="primary"):
+        if speed == 0:
+            st.warning(
+                "Prediction not possible when speed is 0 km/h. Please set speed between 1 and 150 km/h."
+            )
+            return
+
         try:
             result = predict_risk(payload)
+
+            if not bool(result.get("prediction_possible", True)):
+                st.warning(
+                    str(
+                        result.get(
+                            "prediction_message",
+                            "Prediction not possible for this scenario.",
+                        )
+                    )
+                )
+                return
+
             probability = float(result["risk_score"])
             label = str(result["risk_label"])
             color = risk_color(label)
@@ -296,6 +314,9 @@ def show_prediction_section() -> None:
             st.caption(f"Scenario ID: {result.get('scenario_signature', 'n/a')}")
             render_explanation_cards(result)
 
+            if bool(result.get("low_speed_review_applied", False)):
+                st.info("Low-speed model review applied for 1-30 km/h input.")
+
             history = st.session_state.get("prediction_history", [])
             user_facing_payload = {
                 k: v for k, v in payload.items() if k != "visibility_level"
@@ -306,6 +327,9 @@ def show_prediction_section() -> None:
                     "risk_probability": result["risk_score"],
                     "risk_level": result["risk_label"],
                     "scenario_signature": result.get("scenario_signature", "n/a"),
+                    "low_speed_review_applied": bool(
+                        result.get("low_speed_review_applied", False)
+                    ),
                 }
             )
             st.session_state["prediction_history"] = history[-100:]
@@ -383,11 +407,32 @@ def show_advanced_section() -> None:
                     "visibility_level": str(row["visibility_level"]),
                 }
                 pred = predict_risk(row_payload)
+                if not bool(pred.get("prediction_possible", True)):
+                    predictions.append(
+                        {
+                            **row_payload,
+                            "risk_probability": None,
+                            "risk_level": "Prediction Not Possible",
+                            "prediction_message": str(
+                                pred.get(
+                                    "prediction_message",
+                                    "Prediction not possible for this scenario.",
+                                )
+                            ),
+                            "low_speed_review_applied": False,
+                        }
+                    )
+                    continue
+
                 predictions.append(
                     {
                         **row_payload,
                         "risk_probability": pred["risk_score"],
                         "risk_level": pred["risk_label"],
+                        "prediction_message": str(pred.get("prediction_message", "")),
+                        "low_speed_review_applied": bool(
+                            pred.get("low_speed_review_applied", False)
+                        ),
                     }
                 )
 

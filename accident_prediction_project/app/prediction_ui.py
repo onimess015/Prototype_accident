@@ -224,6 +224,16 @@ class RiskPredictionUI:
             user_inputs: Dictionary of user input features
             show_gauge: Whether to display the gauge chart
         """
+        # Handle non-moving scenario before probability rendering.
+        vehicle_speed = user_inputs.get("vehicle_speed") if user_inputs else None
+        if vehicle_speed is not None:
+            parsed_speed = pd.to_numeric(vehicle_speed, errors="coerce")
+            if not pd.isna(parsed_speed) and float(parsed_speed) == 0.0:
+                st.warning(
+                    "Prediction not possible when vehicle speed is 0 km/h. Please use a speed between 1 and 150 km/h."
+                )
+                return
+
         # Validate probability
         if probability is None or not (0 <= probability <= 1):
             st.error("Invalid prediction probability")
@@ -319,6 +329,10 @@ class RiskPredictionUI:
                     st.markdown(f"• **{recommendation}**")
             else:
                 st.info("No additional safety measures required")
+
+            parsed_speed = pd.to_numeric(vehicle_speed, errors="coerce")
+            if not pd.isna(parsed_speed) and 1 <= float(parsed_speed) <= 30:
+                st.info("Low-speed model review active for 1-30 km/h scenarios.")
 
         # ==================================================================
         # ADDITIONAL INSIGHTS SECTION (Below two columns)

@@ -12,6 +12,10 @@ from .data_preprocessing import REQUIRED_MODEL_FEATURES, NUMERIC_MODEL_FEATURES
 from .utils import MODELS_DIR
 
 
+LOW_SPEED_MIN_KMH = 1
+LOW_SPEED_MAX_KMH = 30
+
+
 def load_artifacts(
     model_path: Path | None = None, preprocessor_path: Path | None = None
 ):
@@ -130,6 +134,22 @@ def _score_to_label(risk_score: float) -> str:
     if risk_score < 0.70:
         return "Medium Risk"
     return "High Risk"
+
+
+def _is_prediction_not_possible(speed_kmh: float) -> bool:
+    return float(speed_kmh) == 0.0
+
+
+def _apply_low_speed_review(risk_score: float, speed_kmh: float) -> tuple[float, bool]:
+    speed_value = float(speed_kmh)
+    if speed_value < LOW_SPEED_MIN_KMH or speed_value > LOW_SPEED_MAX_KMH:
+        return risk_score, False
+
+    # Low-speed scenarios are reviewed to reduce over-alerting in very slow movement.
+    review_strength = (LOW_SPEED_MAX_KMH - speed_value + 1.0) / LOW_SPEED_MAX_KMH
+    reduction = min(0.22, 0.22 * review_strength)
+    adjusted_score = risk_score * (1.0 - reduction)
+    return max(0.0, min(1.0, adjusted_score)), True
 
 
 def _scenario_signature(input_dict: dict[str, Any]) -> str:
@@ -266,6 +286,26 @@ def _top_risk_factors(model, input_frame: pd.DataFrame) -> list[str]:
 
 def predict_risk(input_dict: dict[str, Any]) -> dict[str, float | str | list[str]]:
     validated_input = _validate_payload(input_dict)
+    speed_kmh = float(validated_input.get("vehicle_speed", 0.0) or 0.0)
+
+    if _is_prediction_not_possible(speed_kmh):
+        return {
+            "prediction_possible": False,
+            "prediction_message": "Prediction not possible when vehicle speed is 0 km/h.",
+            "risk_score": 0.0,
+            "risk_percentage": 0.0,
+            "risk_label": "Prediction Not Possible",
+            "predicted_class": -1,
+            "decision_threshold": 0.5,
+            "top_factors": [],
+            "scenario_signature": _scenario_signature(validated_input),
+            "accident_reason": "Prediction skipped because the vehicle is stationary.",
+            "accident_cause": "Primary likely cause: not applicable at zero speed.",
+            "accident_why": "Why: the model expects moving-vehicle scenarios for risk scoring.",
+            "accident_how": "How accident can happen: not evaluated for zero-speed input.",
+            "low_speed_review_applied": False,
+        }
+
     model, preprocessor = load_artifacts()
 
     if hasattr(model, "feature_schema_"):
@@ -282,6 +322,10 @@ def predict_risk(input_dict: dict[str, Any]) -> dict[str, float | str | list[str
     else:
         risk_score = float(model.predict(input_frame)[0])
 
+    risk_score, low_speed_review_applied = _apply_low_speed_review(
+        risk_score, speed_kmh
+    )
+
     decision_threshold = float(getattr(model, "best_threshold_", 0.5))
     predicted_class = int(risk_score >= decision_threshold)
 
@@ -289,11 +333,18 @@ def predict_risk(input_dict: dict[str, Any]) -> dict[str, float | str | list[str
     top_factors = _top_risk_factors(model, input_frame)
     narrative = _build_risk_narrative(validated_input, risk_score, risk_label)
     return {
+        "prediction_possible": True,
         "risk_score": round(risk_score, 4),
         "risk_percentage": round(risk_score * 100, 2),
         "risk_label": risk_label,
         "predicted_class": predicted_class,
         "decision_threshold": round(decision_threshold, 3),
         "top_factors": top_factors,
+        "low_speed_review_applied": low_speed_review_applied,
+        "prediction_message": (
+            "Low-speed review applied for 1-30 km/h scenario."
+            if low_speed_review_applied
+            else ""
+        ),
         **narrative,
     }
