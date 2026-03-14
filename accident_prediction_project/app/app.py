@@ -144,15 +144,7 @@ def risk_color(label: str) -> str:
     if label == "Medium Risk":
         return "#b45309"
     return "#b91c1c"
-APP_NOTE = (
-    "SafeRoute AI is an AI-powered road safety dashboard that predicts accident risk "
-    "using driving and environmental conditions such as speed, weather, road type, "
-    "traffic density, lighting, and driver fatigue. The system not only estimates risk "
-    "but also explains why risk is elevated, highlights major contributing factors, "
-    "and helps users explore different conditions through interactive scenario simulation. "
-    "The goal is to make accident-risk analysis easy to understand, visually engaging, "
-    "and useful for real-world decision support."
-)
+
 
 def risk_gauge(probability: float) -> go.Figure:
     return go.Figure(
